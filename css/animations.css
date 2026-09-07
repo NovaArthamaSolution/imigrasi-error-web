@@ -108,51 +108,6 @@
   }
 }
 
-/* Floating Geometric Motifs (Plus, Ring, Diamond, Dot) */
-@keyframes particleFloatA {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-    opacity: 0.35;
-  }
-  50% {
-    transform: translateY(-22px) rotate(180deg);
-    opacity: 0.75;
-  }
-}
-
-@keyframes particleFloatB {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px) rotate(0deg);
-    opacity: 0.3;
-  }
-  50% {
-    transform: translateY(-16px) translateX(12px) rotate(-120deg);
-    opacity: 0.65;
-  }
-}
-
-@keyframes particleFloatC {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
-    opacity: 0.25;
-  }
-  50% {
-    transform: translateY(20px) scale(1.25);
-    opacity: 0.6;
-  }
-}
-
-@keyframes pulseGlowRing {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.3;
-  }
-  50% {
-    transform: scale(1.28);
-    opacity: 0.65;
-  }
-}
-
 /* Dynamic Grid Drift Motion */
 @keyframes gridDrift {
   0% {

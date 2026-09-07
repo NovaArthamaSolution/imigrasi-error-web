@@ -141,57 +141,6 @@ body {
   animation: morphFloat4 20s ease-in-out infinite;
 }
 
-/* Subtle Kinetic Geometric Floating Motifs */
-.bg-particles-container {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.bg-particle {
-  position: absolute;
-  pointer-events: none;
-  opacity: 0.45;
-  color: var(--evisa-navy);
-}
-
-.p-item-1 {
-  top: 18%;
-  left: 8%;
-  animation: particleFloatA 8s ease-in-out infinite;
-  color: var(--evisa-orange);
-}
-
-.p-item-2 {
-  top: 25%;
-  right: 12%;
-  animation: particleFloatB 10s ease-in-out infinite 1s;
-  color: var(--evisa-navy-light);
-}
-
-.p-item-3 {
-  bottom: 28%;
-  left: 14%;
-  animation: particleFloatC 9s ease-in-out infinite 2s;
-  color: var(--evisa-blue);
-}
-
-.p-item-4 {
-  bottom: 18%;
-  right: 22%;
-  animation: particleFloatA 11s ease-in-out infinite 1.5s;
-  color: var(--evisa-orange);
-}
-
-.p-item-5 {
-  top: 60%;
-  left: 45%;
-  animation: particleFloatB 12s ease-in-out infinite 0.5s;
-  color: var(--evisa-navy);
-}
-
 /* Animated Flowing Subtle Grid Pattern */
 .bg-pattern-overlay {
   position: fixed;
