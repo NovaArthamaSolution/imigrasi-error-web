@@ -1,0 +1,64 @@
+/**
+ * Layanan Imigrasi Digital - Animation Engine
+ * Keyframe Animations for Illustrations, Cards, & Interactive Triggers
+ */
+
+/* Soft Vertical Floating Animation for Illustration Card */
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.anim-float {
+  animation: softFloat 5s ease-in-out infinite;
+}
+
+/* Subtle Shimmer Effect for Accent Badges */
+@keyframes shimmerGlow {
+  0%, 100% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 0 rgba(241, 116, 37, 0));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(241, 116, 37, 0.4));
+  }
+}
+
+.anim-shimmer {
+  animation: shimmerGlow 3s ease-in-out infinite;
+}
+
+/* Spin Keyframe for Loading / Reload Buttons */
+@keyframes spinFast {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.is-spinning {
+  animation: spinFast 0.75s linear infinite !important;
+}
+
+/* Fade and Slide-In */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-fade-up {
+  animation: fadeInSlideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

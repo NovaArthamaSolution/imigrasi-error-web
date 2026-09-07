@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="100%" height="100%">
+  <defs>
+    <!-- Soft Globe Atmosphere Gradient -->
+    <radialGradient id="globeGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#EFF6FF" />
+      <stop offset="40%" stop-color="#DBEAFE" />
+      <stop offset="85%" stop-color="#BFDBFE" />
+      <stop offset="100%" stop-color="#93C5FD" />
+    </radialGradient>
+
+    <radialGradient id="continentGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#93C5FD" />
+      <stop offset="100%" stop-color="#60A5FA" />
+    </radialGradient>
+
+    <!-- Globe Soft Shadow -->
+    <filter id="globeGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#2563EB" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <style>
+<![CDATA[
+
+  
+    /* Subtle Globe Breathing & Floating */
+    .globe-body {
+      animation: globeFloat 4s ease-in-out infinite;
+      transform-origin: 70px 70px;
+    }
+    @keyframes globeFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-3px) rotate(2deg); }
+    }
+
+    /* Dashed Trail Flowing Along Fixed Orbital Trajectory */
+    .orbit-trail-flow {
+      stroke-dasharray: 6 6;
+      animation: orbitTrailMarch 1.2s linear infinite;
+    }
+    @keyframes orbitTrailMarch {
+      from { stroke-dashoffset: 24; }
+      to { stroke-dashoffset: 0; }
+    }
+  
+  
+]]>
+</style>
+
+  <!-- 1. BACK ARC OF ORBIT TRAIL (Drawn behind the globe) -->
+  <g transform="rotate(-25 70 70)">
+    <path class="orbit-trail-flow" 
+          d="M 12 70 A 58 22 0 0 1 128 70" 
+          stroke="#2563EB" 
+          stroke-width="2" 
+          fill="none" 
+          stroke-linecap="round" 
+          opacity="0.65" />
+  </g>
+
+  <!-- 2. GLOBE SPHERE & CONTINENTS (Middle Layer) -->
+  <g class="globe-body" filter="url(#globeGlow)">
+    <!-- Main Planet Circle -->
+    <circle cx="70" cy="70" r="44" fill="url(#globeGrad)" stroke="#60A5FA" stroke-width="2.5" />
+    
+    <!-- Continents Shapes Matching Modern Globe Illustration -->
+    <!-- North & South America -->
+    <path d="M 40 50 
+             C 42 42, 48 38, 54 40 
+             C 58 44, 52 50, 48 56 
+             C 45 62, 52 74, 56 82 
+             C 54 88, 48 94, 44 92 
+             C 40 86, 36 70, 40 50 Z" 
+          fill="url(#continentGrad)" opacity="0.9" />
+    
+    <!-- Europe & Africa -->
+    <path d="M 64 36 
+             C 72 34, 78 38, 76 44 
+             C 72 48, 76 56, 80 62 
+             C 84 72, 78 84, 70 86 
+             C 64 84, 62 76, 64 68 
+             C 66 60, 60 52, 62 42 Z" 
+          fill="url(#continentGrad)" opacity="0.9" />
+
+    <!-- Asia & Islands -->
+    <path d="M 82 42 
+             C 90 38, 102 44, 100 52 
+             C 96 60, 90 64, 88 56 Z" 
+          fill="url(#continentGrad)" opacity="0.9" />
+
+    <!-- Latitude / Longitude Subtle Curved Coordinates -->
+    <ellipse cx="70" cy="70" rx="44" ry="16" stroke="#93C5FD" stroke-width="1.2" fill="none" opacity="0.45" />
+    <line x1="70" y1="26" x2="70" y2="114" stroke="#93C5FD" stroke-width="1.2" opacity="0.45" />
+    <ellipse cx="70" cy="70" rx="20" ry="44" stroke="#93C5FD" stroke-width="1.2" fill="none" opacity="0.35" />
+  </g>
+
+  <!-- 3. FRONT ARC OF ORBIT TRAIL (Drawn in front of the globe) -->
+  <g transform="rotate(-25 70 70)">
+    <path class="orbit-trail-flow" 
+          d="M 128 70 A 58 22 0 0 1 12 70" 
+          stroke="#2563EB" 
+          stroke-width="2" 
+          fill="none" 
+          stroke-linecap="round" 
+          opacity="0.85" />
+  </g>
+</svg>

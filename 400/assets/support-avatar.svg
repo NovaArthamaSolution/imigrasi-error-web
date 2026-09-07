@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <style>
+<![CDATA[
+
+      .bg-circle { fill: #7ebbf7; stroke: #ffffff; stroke-width: 8; }
+      .skin { fill: #f8c29d; stroke: #2d1d17; stroke-width: 3.5; stroke-linejoin: round; stroke-linecap: round; }
+      .hair { fill: #202227; stroke: #141518; stroke-width: 3.5; stroke-linejoin: round; }
+      .shirt { fill: #4a8df4; stroke: #2a5bb0; stroke-width: 3.5; stroke-linejoin: round; }
+      .collar { fill: #65a1fc; stroke: #2a5bb0; stroke-width: 3; }
+      .inner-shirt { fill: #ffffff; stroke: #2a5bb0; stroke-width: 2.5; }
+      .headset-band { fill: none; stroke: #3f5573; stroke-width: 8; stroke-linecap: round; }
+      .headset-band-inner { fill: none; stroke: #7b96b8; stroke-width: 3.5; stroke-linecap: round; }
+      .headset-cup { fill: #486588; stroke: #28394e; stroke-width: 3.5; }
+      .headset-cup-inner { fill: #384e6a; stroke: #28394e; stroke-width: 2; }
+      .headset-mic { fill: none; stroke: #28394e; stroke-width: 3.5; stroke-linecap: round; }
+      .mic-tip { fill: #1c2633; stroke: #121922; stroke-width: 2; }
+
+      /* Fluid Animations */
+      .anim-head {
+        transform-origin: 250px 380px;
+        animation: headNod 3.2s ease-in-out infinite;
+      }
+      .anim-eyes {
+        transform-origin: 250px 255px;
+        animation: eyeBlink 3.8s infinite;
+      }
+      .anim-mouth {
+        transform-origin: 250px 305px;
+        animation: talkSmile 2.6s ease-in-out infinite;
+      }
+      .anim-body {
+        transform-origin: 250px 450px;
+        animation: bodyBreathe 3.2s ease-in-out infinite;
+      }
+      .anim-sound-wave {
+        transform-origin: 320px 330px;
+        animation: soundPulse 1.8s ease-out infinite;
+      }
+
+      @keyframes headNod {
+        0%, 100% { transform: rotate(0deg) translateY(0px); }
+        35% { transform: rotate(-1.5deg) translateY(-2px); }
+        70% { transform: rotate(1.5deg) translateY(1px); }
+      }
+
+      @keyframes eyeBlink {
+        0%, 90%, 100% { transform: scaleY(1); }
+        94% { transform: scaleY(0.1); }
+      }
+
+      @keyframes talkSmile {
+        0%, 100% { transform: scale(1); }
+        40% { transform: scale(1.04, 0.94); }
+        65% { transform: scale(0.98, 1.05); }
+      }
+
+      @keyframes bodyBreathe {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.015, 1.01); }
+      }
+
+      @keyframes soundPulse {
+        0% { opacity: 0; transform: scale(0.8) translate(0, 0); }
+        50% { opacity: 0.8; }
+        100% { opacity: 0; transform: scale(1.3) translate(10px, 4px); }
+      }
+    
+]]>
+</style>
+
+    <!-- Circular Avatar Mask -->
+    <clipPath id="avatar-clip">
+      <circle cx="250" cy="250" r="236"/>
+    </clipPath>
+  </defs>
+
+  <!-- ================= CIRCULAR BADGE BACKGROUND ================= -->
+  <circle cx="250" cy="250" r="240" class="bg-circle"/>
+
+  <!-- Character Group Clipped Inside Circle -->
+  <g clip-path="url(#avatar-clip)">
+
+    <!-- ================= BODY / TORSO & SHIRT ================= -->
+    <g class="anim-body">
+      <!-- Shoulders & Upper Chest -->
+      <path class="shirt" d="
+        M 140 430 
+        C 145 385, 195 365, 250 365 
+        C 305 365, 355 385, 360 430 
+        L 380 520 
+        L 120 520 Z
+      "/>
+
+      <!-- Inner White Collar / Shirt Insert -->
+      <polygon points="236,365 264,365 250,402" class="inner-shirt"/>
+
+      <!-- Shirt Collar Left & Right -->
+      <polygon points="208,368 245,410 250,388 226,366" class="collar"/>
+      <polygon points="292,368 255,410 250,388 274,366" class="collar"/>
+
+      <!-- Center Button Placket Line -->
+      <line x1="250" y1="410" x2="250" y2="480" stroke="#2a5bb0" stroke-width="3" stroke-linecap="round"/>
+    </g>
+
+    <!-- ================= HEAD, HAIR, FACE & HEADSET ================= -->
+    <g class="anim-head">
+      
+      <!-- Back Hair Layer -->
+      <path class="hair" d="
+        M 152 280 
+        C 125 320, 130 380, 190 375 
+        C 210 372, 230 360, 250 360 
+        C 270 360, 290 372, 310 375 
+        C 370 380, 375 320, 348 280 
+        C 365 230, 345 130, 250 130 
+        C 155 130, 135 230, 152 280 Z
+      "/>
+
+      <!-- Neck -->
+      <path class="skin" d="M 228 325 L 272 325 L 275 375 L 225 375 Z"/>
+      <!-- Neck Shadow Under Chin -->
+      <path d="M 228 328 Q 250 342 272 328 L 273 342 Q 250 355 227 342 Z" fill="#e5aa85" opacity="0.6"/>
+
+      <!-- Head & Face Base Shape -->
+      <path class="skin" d="
+        M 175 250 
+        C 170 190, 205 160, 250 160 
+        C 295 160, 330 190, 325 250 
+        C 325 295, 295 335, 250 335 
+        C 205 335, 175 295, 175 250 Z
+      "/>
+
+      <!-- Cute Blush Cheeks -->
+      <circle cx="202" cy="285" r="14" fill="#f48b7f" opacity="0.55"/>
+      <circle cx="298" cy="285" r="14" fill="#f48b7f" opacity="0.55"/>
+
+      <!-- Front Hair & Side Bangs -->
+      <path class="hair" d="
+        M 175 240 
+        C 170 185, 210 148, 250 148 
+        C 290 148, 330 185, 325 240 
+        C 318 205, 285 185, 250 185 
+        C 215 185, 185 208, 175 240 Z
+      "/>
+      <!-- Soft Forehead Hair Fringe Curves -->
+      <path class="hair" d="
+        M 175 230 
+        C 185 200, 220 185, 255 195 
+        C 278 188, 308 198, 322 232 
+        C 312 214, 285 202, 260 206 
+        C 230 210, 198 215, 175 230 Z
+      "/>
+
+      <!-- Eyebrows -->
+      <path d="M 198 226 Q 215 216 230 226" fill="none" stroke="#202227" stroke-width="4.5" stroke-linecap="round"/>
+      <path d="M 270 226 Q 285 216 302 226" fill="none" stroke="#202227" stroke-width="4.5" stroke-linecap="round"/>
+
+      <!-- Nose -->
+      <path d="M 254 256 Q 256 274 246 276" fill="none" stroke="#d68b63" stroke-width="3.5" stroke-linecap="round"/>
+
+      <!-- Animated Cute Blinking Eyes -->
+      <g class="anim-eyes">
+        <!-- Left Eye -->
+        <ellipse cx="218" cy="254" rx="8" ry="11" fill="#1b1d22"/>
+        <circle cx="221" cy="250" r="3.5" fill="#ffffff"/>
+        <circle cx="215" cy="258" r="1.5" fill="#ffffff"/>
+
+        <!-- Right Eye -->
+        <ellipse cx="282" cy="254" rx="8" ry="11" fill="#1b1d22"/>
+        <circle cx="285" cy="250" r="3.5" fill="#ffffff"/>
+        <circle cx="279" cy="258" r="1.5" fill="#ffffff"/>
+      </g>
+
+      <!-- Animated Friendly Open Mouth -->
+      <g class="anim-mouth">
+        <path d="M 230 292 Q 250 292 270 292 C 270 318, 230 318, 230 292 Z" fill="#8f2323" stroke="#2d1d17" stroke-width="2.5" stroke-linejoin="round"/>
+        <!-- Tongue -->
+        <path d="M 238 308 Q 250 298 262 308 Q 250 316 238 308 Z" fill="#f28e82"/>
+        <!-- Upper Teeth -->
+        <path d="M 233 293 Q 250 298 267 293" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+      </g>
+
+      <!-- ================= HEADSET & BOOM MICROPHONE ================= -->
+      <!-- Headband Arc -->
+      <path d="M 160 250 C 150 150, 350 150, 340 250" class="headset-band"/>
+      <path d="M 162 245 C 154 156, 346 156, 338 245" class="headset-band-inner"/>
+
+      <!-- Left Earcup Cushion -->
+      <rect x="144" y="230" width="28" height="48" rx="14" class="headset-cup"/>
+      <rect x="150" y="238" width="16" height="32" rx="8" class="headset-cup-inner"/>
+
+      <!-- Right Earcup Cushion -->
+      <rect x="328" y="230" width="28" height="48" rx="14" class="headset-cup"/>
+      <rect x="334" y="238" width="16" height="32" rx="8" class="headset-cup-inner"/>
+
+      <!-- Curved Microphone Boom Arm -->
+      <path d="M 336 265 C 342 320, 305 340, 276 330" class="headset-mic"/>
+      <!-- Mic Foam Tip -->
+      <rect x="264" y="322" width="15" height="13" rx="6" class="mic-tip"/>
+
+      <!-- Animated Voice Audio Waves emitted from Mic -->
+      <g class="anim-sound-wave">
+        <path d="M 292 320 C 298 326, 298 334, 292 340" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+        <path d="M 302 314 C 312 324, 312 338, 302 348" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+
+    </g>
+  </g>
+</svg>

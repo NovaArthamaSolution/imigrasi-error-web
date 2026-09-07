@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <style>
+<![CDATA[
+
+      .anim-siren {
+        animation: fastSirenPulse 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        transform-origin: 50px 48px;
+      }
+      @keyframes fastSirenPulse {
+        0%, 100% {
+          fill: #EF4444;
+          filter: drop-shadow(0 0 2px #EF4444);
+          opacity: 0.85;
+        }
+        50% {
+          fill: #22C55E;
+          filter: drop-shadow(0 0 12px #22C55E) drop-shadow(0 0 24px #4ADE80);
+          opacity: 1;
+        }
+      }
+    
+]]>
+</style>
+  </defs>
+
+  <!-- Solid Siren Mount Base -->
+  <rect x="36" y="68" width="28" height="8" rx="2" fill="#5B6978" stroke="#334155" stroke-width="1.5"/>
+  <!-- Siren Dome -->
+  <path class="anim-siren" d="M 38 68 C 38 48, 62 48, 62 68 Z"/>
+</svg>

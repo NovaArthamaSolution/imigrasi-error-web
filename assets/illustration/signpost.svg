@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 380" width="100%" height="100%">
+  <defs>
+    <!-- Top Sign: Golden Yellow Gradients (IZIN TINGGAL) -->
+    <linearGradient id="yellowFaceGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="30%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    <linearGradient id="yellowBevelGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#B45309" />
+    </linearGradient>
+
+    <!-- Middle Sign: Sky Blue Gradients (VISA) -->
+    <linearGradient id="blueFaceGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#60A5FA" />
+      <stop offset="35%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+    <linearGradient id="blueBevelGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#1E3A8A" />
+    </linearGradient>
+
+    <!-- Bottom Sign: Fresh Green Gradients (PASPOR) -->
+    <linearGradient id="greenFaceGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4ADE80" />
+      <stop offset="35%" stop-color="#22C55E" />
+      <stop offset="100%" stop-color="#16A34A" />
+    </linearGradient>
+    <linearGradient id="greenBevelGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#16A34A" />
+      <stop offset="100%" stop-color="#14532D" />
+    </linearGradient>
+
+    <!-- Metal Navy Pole Gradient -->
+    <linearGradient id="poleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="35%" stop-color="#1E293B" />
+      <stop offset="70%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+
+    <!-- Soft Sign Drop Shadow -->
+    <filter id="sign3DShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#0F2444" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <style>
+<![CDATA[
+
+  
+    /* Smooth gentle idle sway - transform origin at base */
+    .signpost-body {
+      animation: signSwayStable 5s ease-in-out infinite;
+      transform-origin: 120px 350px;
+    }
+    @keyframes signSwayStable {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(1.4deg); }
+    }
+
+    /* Flicker-free smooth arrow transitions on click/touch */
+    .arrow-plank {
+      transform-origin: center;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+    }
+  
+  
+]]>
+</style>
+
+  <!-- Ground Shadow under Pole & Base -->
+  <ellipse cx="120" cy="355" rx="46" ry="10" fill="#0F2444" opacity="0.22" />
+
+  <g class="signpost-body">
+    <!-- 1. MAIN VERTICAL METAL POLE (Dark Navy Metallic Cylinder) -->
+    <g>
+      <!-- Pole Shaft -->
+      <rect x="110" y="24" width="20" height="330" rx="3" fill="url(#poleGrad)" stroke="#020617" stroke-width="1.2" />
+      <!-- Vertical Specular Highlight -->
+      <line x1="122" y1="26" x2="122" y2="350" stroke="#64748B" stroke-width="1.5" opacity="0.65" stroke-linecap="round" />
+
+      <!-- Pole Top Cap / Finial (Rounded Metallic Ball & Ridge) -->
+      <!-- Ridge Collar -->
+      <rect x="106" y="20" width="28" height="6" rx="2.5" fill="#1E293B" stroke="#0F172A" stroke-width="1.2" />
+      <!-- Rounded Ball Cap -->
+      <circle cx="120" cy="14" r="9" fill="url(#poleGrad)" stroke="#0F172A" stroke-width="1.2" />
+      <circle cx="118" cy="11" r="3" fill="#94A3B8" opacity="0.8" />
+    </g>
+
+    <!-- 2. TOP SIGN: "IZIN TINGGAL" (Golden Yellow - Pointing LEFT) -->
+    <g class="arrow-plank" filter="url(#sign3DShadow)" transform="translate(18, 36)">
+      <!-- 3D Bottom/Right Thickness Bevel -->
+      <path d="M 32 0 
+               L 182 0 C 188 0 194 5 194 12 
+               L 194 48 C 194 55 188 60 182 60 
+               L 32 60 C 26 60 20 56 16 50 
+               L 2 34 C -1 30 -1 24 2 20 
+               L 16 4 C 20 -2 26 0 32 0 Z" 
+            fill="url(#yellowBevelGrad)" />
+
+      <!-- Front Yellow Arrow Face (Offset for 3D depth) -->
+      <path d="M 30 -6 
+               L 178 -6 C 183 -6 188 -1 188 5 
+               L 188 41 C 188 47 183 52 178 52 
+               L 30 52 C 25 52 19 48 15 42 
+               L 1 27 C -2 23 -2 17 1 13 
+               L 15 -2 C 19 -5 25 -6 30 -6 Z" 
+            fill="url(#yellowFaceGrad)" stroke="#D97706" stroke-width="1.8" />
+
+      <!-- Subtle Top Highlight Rim -->
+      <path d="M 30 -4 L 178 -4 C 181 -4 184 -1 184 3" stroke="#FEF08A" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.85" />
+
+      <!-- Text: "IZIN TINGGAL" (Bold Navy Blue) -->
+      <text x="104" y="29" 
+            font-family="'Plus Jakarta Sans', system-ui, sans-serif" 
+            font-size="16" 
+            font-weight="900" 
+            fill="#0F172A" 
+            text-anchor="middle" 
+            letter-spacing="1.2">IZIN TINGGAL</text>
+
+      <!-- Mounting Ring Rivet -->
+      <circle cx="102" cy="46" r="2.5" fill="#78350F" opacity="0.8" />
+    </g>
+
+    <!-- 3. MIDDLE SIGN: "VISA" (Vibrant Sky Blue - Pointing LEFT) -->
+    <g class="arrow-plank" filter="url(#sign3DShadow)" transform="translate(14, 114)">
+      <!-- 3D Bottom/Right Thickness Bevel -->
+      <path d="M 32 0 
+               L 174 0 C 180 0 186 5 186 12 
+               L 186 48 C 186 55 180 60 174 60 
+               L 32 60 C 26 60 20 56 16 50 
+               L 2 34 C -1 30 -1 24 2 20 
+               L 16 4 C 20 -2 26 0 32 0 Z" 
+            fill="url(#blueBevelGrad)" />
+
+      <!-- Front Blue Arrow Face -->
+      <path d="M 30 -6 
+               L 170 -6 C 175 -6 180 -1 180 5 
+               L 180 41 C 180 47 175 52 170 52 
+               L 30 52 C 25 52 19 48 15 42 
+               L 1 27 C -2 23 -2 17 1 13 
+               L 15 -2 C 19 -5 25 -6 30 -6 Z" 
+            fill="url(#blueFaceGrad)" stroke="#1D4ED8" stroke-width="1.8" />
+
+      <!-- Top Highlight Rim -->
+      <path d="M 30 -4 L 170 -4 C 173 -4 176 -1 176 3" stroke="#BAE6FD" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.85" />
+
+      <!-- Text: "VISA" (Bold Pure White) -->
+      <text x="100" y="29" 
+            font-family="'Plus Jakarta Sans', system-ui, sans-serif" 
+            font-size="20" 
+            font-weight="900" 
+            fill="#FFFFFF" 
+            text-anchor="middle" 
+            letter-spacing="2.5">VISA</text>
+
+      <!-- Mounting Ring Rivet -->
+      <circle cx="106" cy="46" r="2.5" fill="#0C4A6E" opacity="0.8" />
+    </g>
+
+    <!-- 4. BOTTOM SIGN: "PASPOR" (Fresh Green - Pointing RIGHT) -->
+    <g class="arrow-plank" filter="url(#sign3DShadow)" transform="translate(30, 192)">
+      <!-- 3D Bottom/Left Thickness Bevel -->
+      <path d="M 12 0 
+               L 152 0 C 158 0 164 5 168 10 
+               L 182 26 C 185 30 185 36 182 40 
+               L 168 54 C 164 59 158 60 152 60 
+               L 12 60 C 5 60 0 55 0 48 
+               L 0 12 C 0 5 5 0 12 0 Z" 
+            fill="url(#greenBevelGrad)" />
+
+      <!-- Front Green Arrow Face -->
+      <path d="M 14 -6 
+               L 150 -6 C 155 -6 160 -1 164 4 
+               L 178 20 C 181 24 181 30 178 34 
+               L 164 48 C 160 53 155 54 150 54 
+               L 14 54 C 8 54 3 49 3 43 
+               L 3 5 C 3 -1 8 -6 14 -6 Z" 
+            fill="url(#greenFaceGrad)" stroke="#15803D" stroke-width="1.8" />
+
+      <!-- Top Highlight Rim -->
+      <path d="M 14 -4 L 150 -4 C 153 -4 156 -1 159 3" stroke="#BBF7D0" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.85" />
+
+      <!-- Text: "PASPOR" (Bold Pure White) -->
+      <text x="88" y="29" 
+            font-family="'Plus Jakarta Sans', system-ui, sans-serif" 
+            font-size="19" 
+            font-weight="900" 
+            fill="#FFFFFF" 
+            text-anchor="middle" 
+            letter-spacing="2">PASPOR</text>
+
+      <!-- Mounting Ring Rivet -->
+      <circle cx="90" cy="48" r="2.5" fill="#064E3B" opacity="0.8" />
+    </g>
+
+    <!-- 5. BASE FOLIAGE / BUSH (Lush Greenery Wrapping the Pole Base) -->
+    <g transform="translate(74, 320)">
+      <!-- Back dark leaves -->
+      <path d="M 10 32 C 10 18, 22 10, 36 18 C 42 6, 58 6, 66 16 C 76 10, 90 18, 86 32 Z" fill="#15803D" opacity="0.9" />
+      <!-- Mid-tone green leaves -->
+      <path d="M 16 34 C 18 22, 32 16, 44 24 C 50 14, 64 14, 72 24 C 80 20, 88 28, 82 34 Z" fill="#22C55E" />
+      <!-- Front bright sprouts -->
+      <circle cx="34" cy="30" r="10" fill="#4ADE80" />
+      <circle cx="58" cy="28" r="11" fill="#4ADE80" />
+      <circle cx="46" cy="25" r="9" fill="#86EFAC" />
+    </g>
+  </g>
+</svg>

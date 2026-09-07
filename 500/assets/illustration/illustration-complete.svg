@@ -1,0 +1,741 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -100 900 600" width="100%" height="100%">
+  <defs>
+    <style>
+<![CDATA[
+
+      /* Metal and Structure Gradients */
+      .gate-body { fill: url(#metallic-grad); stroke: #7d8b9b; stroke-width: 2.5; }
+      .gate-inner { fill: #c0cbd6; stroke: #8090a0; stroke-width: 2; }
+      .gate-pillar { fill: url(#pillar-grad); stroke: #5b6978; stroke-width: 2; }
+      .gate-top-bevel { fill: #dae3eb; stroke: #99a8b8; stroke-width: 2; }
+      .base-shadow { fill: #2c3e55; opacity: 0.18; filter: blur(6px); }
+
+      /* Glass Wings */
+      .glass-wing { fill: #eaf3fc; fill-opacity: 0.55; stroke: #b0cbe6; stroke-width: 2; rx: 12; }
+      .glass-red-strip { stroke: #ea3323; stroke-width: 4; stroke-linecap: round; }
+
+      /* Animations */
+      .anim-passport {
+        transform-origin: 450px 340px;
+        animation: floatScan 4s ease-in-out infinite;
+      }
+      .anim-left-wing {
+        transform-origin: 220px 240px;
+        animation: openLeftWing 4s ease-in-out infinite;
+      }
+      .anim-right-wing {
+        transform-origin: 680px 240px;
+        animation: openRightWing 4s ease-in-out infinite;
+      }
+      .anim-alarm-light {
+        animation: alarmFlash 4s infinite;
+      }
+      .anim-led-screen {
+        animation: ledSwitch 4s infinite;
+      }
+      .anim-scan-ray {
+        animation: scanBeam 4s ease-in-out infinite;
+      }
+
+      /* Keyframes for Synchronized Gate Scan Cycle */
+      @keyframes floatScan {
+        0%, 100% { transform: translateY(0px) scale(1); }
+        35% { transform: translateY(-16px) scale(1.04); }
+        55% { transform: translateY(-16px) scale(1.04); }
+        80% { transform: translateY(0px) scale(1); }
+      }
+
+      @keyframes openLeftWing {
+        0%, 35%, 100% { transform: scaleX(1); }
+        48%, 78% { transform: scaleX(0.12) skewY(-8deg); }
+      }
+
+      @keyframes openRightWing {
+        0%, 35%, 100% { transform: scaleX(1); }
+        48%, 78% { transform: scaleX(0.12) skewY(8deg); }
+      }
+
+      @keyframes alarmFlash {
+        0%, 40%, 80%, 100% { fill: #ef4444; filter: drop-shadow(0 0 2px #ef4444); }
+        50%, 70% { fill: #22c55e; filter: drop-shadow(0 0 10px #22c55e); }
+      }
+
+      @keyframes ledSwitch {
+        0%, 40%, 80%, 100% { fill: #06b6d4; }
+        50%, 70% { fill: #22c55e; filter: drop-shadow(0 0 6px #22c55e); }
+      }
+
+      @keyframes scanBeam {
+        0%, 25%, 75%, 100% { opacity: 0; transform: translateY(-40px); }
+        35%, 55% { opacity: 0.85; transform: translateY(60px); }
+      }
+
+      @keyframes flightDashMotion { to { stroke-dashoffset: -32; } }
+      @keyframes cloudDriftLeftMotion { 0%, 100% { transform: translateX(0px); } 50% { transform: translateX(10px); } }
+      @keyframes cloudDriftRightMotion { 0%, 100% { transform: translateX(0px); } 50% { transform: translateX(-12px); } }
+      @keyframes twinkleFastA {
+        0%, 100% { opacity: 0.12; transform: scale(0.4) rotate(0deg); filter: drop-shadow(0 0 0px transparent); }
+        50% { opacity: 1; transform: scale(1.45) rotate(45deg); filter: drop-shadow(0 0 8px #60A5FA) drop-shadow(0 0 14px #FFFFFF); }
+      }
+      @keyframes twinkleFastB {
+        0%, 100% { opacity: 0.15; transform: scale(0.45); filter: drop-shadow(0 0 0px transparent); }
+        50% { opacity: 1; transform: scale(1.4); filter: drop-shadow(0 0 7px #38BDF8) drop-shadow(0 0 12px #FFFFFF); }
+      }
+
+      .anim-flight-arc { stroke-dasharray: 6, 8; animation: flightDashMotion 2.4s linear infinite; }
+      .anim-cloud-l { animation: cloudDriftLeftMotion 6.5s ease-in-out infinite; }
+      .anim-cloud-r { animation: cloudDriftRightMotion 8s ease-in-out infinite; }
+      .anim-sparkle-1 { animation: twinkleFastA 1.8s ease-in-out infinite; transform-origin: 70px 101px; }
+      .anim-sparkle-2 { animation: twinkleFastB 2.2s ease-in-out infinite 0.6s; transform-origin: 280px 35px; }
+      .anim-sparkle-3 { animation: twinkleFastA 1.6s ease-in-out infinite 1.1s; transform-origin: 830px 84px; }
+      .anim-sparkle-4 { animation: twinkleFastB 2.0s ease-in-out infinite 0.4s; transform-origin: 640px 48px; }
+      .anim-sparkle-5 { animation: twinkleFastA 2.4s ease-in-out infinite 1.5s; transform-origin: 480px 39px; }
+
+      /* Character Animations */
+      @keyframes headScratch {
+        0%, 100% { transform: rotate(0deg) translate(0px, 0px); }
+        25% { transform: rotate(4deg) translate(2px, -3px); }
+        50% { transform: rotate(-2deg) translate(-1px, 2px); }
+        75% { transform: rotate(3deg) translate(3px, -2px); }
+      }
+      @keyframes hatWiggle {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(-1.5deg) translateY(-1px); }
+        75% { transform: rotate(1deg) translateY(0.5px); }
+      }
+      @keyframes blink {
+        0%, 92%, 100% { transform: scaleY(1); }
+        96% { transform: scaleY(0.1); }
+      }
+      @keyframes scratchMarks {
+        0%, 100% { opacity: 0.2; transform: scale(0.9); }
+        50% { opacity: 1; transform: scale(1.08); }
+      }
+      @keyframes breathe {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-2px); }
+      }
+
+      .arm-scratch {
+        transform-origin: 200px 140px;
+        animation: headScratch 2.4s ease-in-out infinite;
+      }
+      .hat-group {
+        transform-origin: 250px 45px;
+        animation: hatWiggle 2.4s ease-in-out infinite;
+      }
+      .eyeball {
+        transform-origin: 250px 80px;
+        animation: blink 4s infinite;
+      }
+      .scratch-line {
+        transform-origin: 165px 30px;
+        animation: scratchMarks 1.2s ease-in-out infinite;
+      }
+      .character-body {
+        animation: breathe 3.5s ease-in-out infinite;
+      }
+    
+]]>
+</style>
+
+    <!-- Character Hard Hat Gradients -->
+    <linearGradient id="hatMain" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe600"/>
+      <stop offset="40%" stop-color="#ffcc00"/>
+      <stop offset="100%" stop-color="#e69500"/>
+    </linearGradient>
+    <linearGradient id="hatHighlight" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="hatBrim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffd533"/>
+      <stop offset="100%" stop-color="#c97d00"/>
+    </linearGradient>
+
+    <!-- Character Skin & Blush Gradients -->
+    <linearGradient id="skin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffdfcb"/>
+      <stop offset="100%" stop-color="#f8c4a5"/>
+    </linearGradient>
+    <radialGradient id="blush" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff7b7b" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#ff7b7b" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Character Uniform Gradients -->
+    <linearGradient id="uniform" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#374151"/>
+      <stop offset="50%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+
+    <!-- Character Drop Shadow Filter -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.25"/>
+    </filter>
+
+    <!-- Metallic Pillar Gradient -->
+    <linearGradient id="metallic-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b6c2cf"/>
+      <stop offset="25%" stop-color="#edf2f7"/>
+      <stop offset="60%" stop-color="#c5d0dc"/>
+      <stop offset="100%" stop-color="#8e9dae"/>
+    </linearGradient>
+
+    <!-- Inner Steel Shaft Gradient -->
+    <linearGradient id="pillar-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5a6878"/>
+      <stop offset="40%" stop-color="#9eb0c2"/>
+      <stop offset="70%" stop-color="#647384"/>
+      <stop offset="100%" stop-color="#3d4956"/>
+    </linearGradient>
+
+    <!-- Laser Scanner Gradient -->
+    <linearGradient id="laser-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#4ade80" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Flight Trajectory Path Track (Elevated High Sky Arc - Unclipped) -->
+    <path id="completeFlightTrack" d="M 30 15 C 160 -45, 350 -55, 480 -20 C 610 15, 740 -20, 870 -45" />
+
+    <!-- Soft Translucent Botanical Leaf & Flower Gradients -->
+    <linearGradient id="leafTranslucent1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EBF4FE" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#BFDBFE" stop-opacity="0.6" />
+    </linearGradient>
+
+    <linearGradient id="leafTranslucent2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DBEAFE" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#93C5FD" stop-opacity="0.5" />
+    </linearGradient>
+
+    <linearGradient id="leafTranslucent3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFF6FF" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#C7D2FE" stop-opacity="0.55" />
+    </linearGradient>
+
+    <linearGradient id="flowerPetalSoft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#BAE6FD" stop-opacity="0.7" />
+    </linearGradient>
+
+    <linearGradient id="flowerGoldSoft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.85" />
+    </linearGradient>
+
+    <clipPath id="passportImageClip">
+      <rect x="370" y="230" width="160" height="214" rx="8" />
+    </clipPath>
+  </defs>
+
+  <!-- =========================================================================
+       1. SKY: CLOUDS, FLIGHT PATH, AIRPLANE & SPARKLES
+       ========================================================================= -->
+  <!-- Cloud 1: [LARGE - 1.25x] Fluffy Multi-Tiered Cumulus Giant (Upper Left) -->
+  <g class="anim-cloud-1" opacity="0.94" transform="translate(10, -16) scale(1.25)">
+    <path d="M 40 38 C 40 26 50 16 62 16 C 66 8 76 2 88 2 C 102 2 114 11 116 24 C 122 23 130 28 132 35 C 132 41 126 46 118 46 L 50 46 C 44 46 40 42 40 38 Z" fill="#FFFFFF" filter="url(#softShadow)"/>
+    <!-- Concentric Inner Highlight -->
+    <path d="M 64 22 C 67 14 77 9 88 9 C 98 9 107 16 109 26" fill="none" stroke="#DBEAFE" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M 52 38 L 110 38" stroke="#E2E8F0" stroke-width="1.8" stroke-linecap="round" opacity="0.7"/>
+    <!-- Trailing Wind Streaks -->
+    <line x1="25" y1="44" x2="35" y2="44" stroke="#93C5FD" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+    <line x1="14" y1="39" x2="28" y2="39" stroke="#BFDBFE" stroke-width="1.5" stroke-linecap="round" opacity="0.55"/>
+  </g>
+
+  <!-- Cloud 2: [SMALL - 0.75x] Stylized Mega Mendung Wave (RAISED MUCH HIGHER IN SKY) -->
+  <g class="anim-cloud-2" opacity="0.88" transform="translate(245, -46) scale(0.75)">
+    <!-- Base Cloud Wave -->
+    <path d="M 230 32 C 230 24 238 18 248 18 C 252 10 262 6 274 6 C 288 6 298 14 302 22 C 308 16 320 16 328 22 C 334 26 334 32 328 36 C 322 36 312 36 242 36 C 235 36 230 34 230 32 Z" fill="#FFFFFF" filter="url(#softShadow)"/>
+    <!-- Concentric Ripples -->
+    <path d="M 252 24 C 256 16 264 12 274 12 C 284 12 292 18 295 24" fill="none" stroke="#DBEAFE" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 264 24 C 267 18 270 16 274 16 C 278 16 282 18 284 24" fill="none" stroke="#93C5FD" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Decorative Accent Drops -->
+    <circle cx="218" cy="32" r="3" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="210" cy="32" r="1.8" fill="#93C5FD" opacity="0.75"/>
+  </g>
+
+  <!-- Cloud 3: [MEDIUM - 1.05x] Modern Geometric Aero-Stratus with Streamers (Top Center High) -->
+  <g class="anim-cloud-3" opacity="0.92" transform="translate(420, -18) scale(1.05)">
+    <path d="M 530 32 C 522 32 516 26 516 20 C 516 13 522 8 530 8 C 534 8 538 10 542 13 C 548 6 558 2 570 2 C 584 2 596 11 598 23 C 604 22 612 27 612 33 C 612 38 606 42 598 42 L 536 42 C 532 42 530 37 530 32 Z" fill="#FFFFFF" filter="url(#softShadow)"/>
+    <!-- Modern Rib Arc -->
+    <path d="M 548 18 C 554 10 562 6 572 6 C 582 6 590 12 593 20" fill="none" stroke="#DBEAFE" stroke-width="2" stroke-linecap="round"/>
+    <!-- Streamer Dash -->
+    <line x1="618" y1="33" x2="634" y2="33" stroke="#93C5FD" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <line x1="622" y1="39" x2="630" y2="39" stroke="#BFDBFE" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+  </g>
+
+  <!-- Cloud 4: [MEDIUM-LARGE - 1.18x] Cirrocumulus Billow with Golden Sun-Glow (Mid-Right) -->
+  <g class="anim-cloud-4" opacity="0.95" transform="translate(615, -12) scale(1.18)">
+    <!-- Main Trio Cloud Body -->
+    <path d="M 740 38 C 734 38 728 32 728 26 C 728 19 734 14 742 14 C 746 8 756 4 766 4 C 778 4 788 12 790 22 C 796 20 804 24 806 31 C 808 37 802 42 794 42 L 748 42 C 743 42 740 40 740 38 Z" fill="#FFFFFF" filter="url(#softShadow)"/>
+    <!-- Golden Sunlight Rim Accent -->
+    <path d="M 750 12 C 754 8 760 6 766 6 C 774 6 782 11 784 18" fill="none" stroke="#FDE047" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+    <!-- Companion Baby Puff & Star Dot -->
+    <ellipse cx="818" cy="22" rx="7.5" ry="5" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="830" cy="20" r="2" fill="#60A5FA" opacity="0.8"/>
+    <line x1="716" y1="36" x2="724" y2="36" stroke="#93C5FD" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+  </g>
+
+  <!-- Cloud 5: [PETITE - 0.70x] Whimsical Mini Cirrus Duo (RAISED MUCH HIGHER IN TOP RIGHT) -->
+  <g class="anim-cloud-5" opacity="0.85" transform="translate(800, -50) scale(0.70)">
+    <path d="M 30 25 C 30 18 36 12 44 12 C 48 6 56 3 64 3 C 74 3 82 9 84 18 C 90 17 96 21 96 26 C 96 32 90 36 84 36 L 38 36 C 33 36 30 31 30 25 Z" fill="#FFFFFF" filter="url(#softShadow)"/>
+    <ellipse cx="110" cy="22" rx="8" ry="5" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="122" cy="20" r="2" fill="#38BDF8" opacity="0.85"/>
+    <line x1="14" y1="34" x2="24" y2="34" stroke="#93C5FD" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>
+  </g>
+
+  <path class="anim-flight-arc" d="M 30 15 C 160 -45, 350 -55, 480 -20 C 610 15, 740 -20, 870 -45" fill="none" stroke="#93C5FD" stroke-width="2.2" stroke-linecap="round" />
+
+  <g>
+    <animateMotion dur="6.5s" repeatCount="indefinite" rotate="auto">
+      <mpath href="#completeFlightTrack"/>
+    </animateMotion>
+    <g transform="scale(0.85)">
+      <g transform="translate(0, 6) scale(0.95)" opacity="0.12">
+        <path d="M 22 0 C 20 -2, 12 -3, -14 -2.5 L -18 -8 L -21 -8 L -19 -1 L -22 -1 L -24 -3 L -26 -3 L -25 0 L -26 3 L -24 3 L -22 1 L -19 1 L -21 8 L -18 8 L -14 2.5 C 12 3, 20 2, 22 0 Z" fill="#000000"/>
+        <path d="M 4 0 L -8 -22 L -4 -22 L 9 -1.5 L 9 1.5 L -4 22 L -8 22 L 4 0 Z" fill="#000000"/>
+      </g>
+      <path d="M 5 0 L -7 -22 L -3 -22 L 10 -1.5 L 10 1.5 L -3 22 L -7 22 L 5 0 Z" fill="#1D4ED8"/>
+      <line x1="5" y1="0" x2="-3" y2="-22" stroke="#60A5FA" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="5" y1="0" x2="-3" y2="22" stroke="#60A5FA" stroke-width="1.2" stroke-linecap="round"/>
+      <rect x="-1" y="-10" width="7" height="3" rx="1.5" fill="#3B82F6" stroke="#1E40AF" stroke-width="0.8"/>
+      <rect x="-1" y="7" width="7" height="3" rx="1.5" fill="#3B82F6" stroke="#1E40AF" stroke-width="0.8"/>
+      <path d="M -13 0 L -18 -9 L -15 -9 L -11 -0.8 L -11 0.8 L -15 9 L -18 9 L -13 0 Z" fill="#1E40AF"/>
+      <path d="M 24 0 C 20 -3.2, 10 -3.8, -18 -3.2 C -21 -3.2, -22 -1.5, -22 0 C -22 1.5, -21 3.2, -18 3.2 C 10 3.8, 20 3.2, 24 0 Z" fill="#2563EB"/>
+      <path d="M 22 0 C 18 -1.8, 8 -2, -16 -1.8 C -18 -1.8, -19 -0.8, -19 0 C -19 0.8, -18 1.8, -16 1.8 C 8 2, 18 1.8, 22 0 Z" fill="#60A5FA" opacity="0.75"/>
+      <path d="M 19 0 C 17 -1.2, 15 -1.2, 13 -1.2 L 13 1.2 C 15 1.2, 17 1.2, 19 0 Z" fill="#0F172A"/>
+      <circle cx="10" cy="-0.8" r="0.65" fill="#FFFFFF"/>
+      <circle cx="7" cy="-0.8" r="0.65" fill="#FFFFFF"/>
+      <circle cx="4" cy="-0.8" r="0.65" fill="#FFFFFF"/>
+      <circle cx="1" cy="-0.8" r="0.65" fill="#FFFFFF"/>
+      <circle cx="-2" cy="-0.8" r="0.65" fill="#FFFFFF"/>
+      <circle cx="-5" cy="-0.8" r="0.65" fill="#FFFFFF"/>
+      <circle cx="-8" cy="-0.8" r="0.65" fill="#FFFFFF"/>
+      <circle cx="-11" cy="-0.8" r="0.65" fill="#FFFFFF"/>
+    </g>
+  </g>
+
+  <!-- High-Contrast Constellation & Twinkling Stars -->
+  <g id="comp-sparkles">
+    <g class="anim-sparkle-1">
+      <path d="M70 95 L76 101 L70 107 L64 101 Z" fill="#93C5FD" opacity="0.4" stroke="#60A5FA" stroke-width="2" />
+      <circle cx="70" cy="101" r="2" fill="#FFFFFF" />
+    </g>
+    <g class="anim-sparkle-2">
+      <path d="M280 28 V42 M273 35 H287" stroke="#38BDF8" stroke-width="2.6" stroke-linecap="round" />
+      <circle cx="280" cy="35" r="2.2" fill="#FFFFFF" />
+    </g>
+    <g class="anim-sparkle-3">
+      <path d="M830 78 L836 84 L830 90 L824 84 Z" fill="#60A5FA" opacity="0.5" stroke="#38BDF8" stroke-width="2" />
+      <circle cx="830" cy="84" r="2" fill="#FFFFFF" />
+    </g>
+    <g class="anim-sparkle-4">
+      <path d="M640 42 V54 M634 48 H646" stroke="#93C5FD" stroke-width="2.2" stroke-linecap="round" />
+      <circle cx="640" cy="48" r="1.8" fill="#FFFFFF" />
+    </g>
+    <g class="anim-sparkle-5">
+      <path d="M480 34 L484 39 L480 44 L476 39 Z" fill="#FFFFFF" stroke="#60A5FA" stroke-width="1.8" />
+      <circle cx="480" cy="39" r="1.6" fill="#38BDF8" />
+    </g>
+  </g>
+
+  <!-- Soft Translucent Botanical Plants -->
+  <g id="asset-plants">
+    <g id="plants-cluster-left" transform="translate(10, 320)">
+      <path d="M 25 155 C 5 110 8 50 35 15 C 48 45 42 105 25 155 Z" fill="url(#leafTranslucent1)" opacity="0.85"/>
+      <path d="M 35 15 C 36 60 32 110 25 155" stroke="#FFFFFF" stroke-width="1" opacity="0.6"/>
+      <path d="M 40 155 C 50 105 85 70 110 50 C 105 85 75 125 40 155 Z" fill="url(#leafTranslucent2)" opacity="0.75"/>
+      <path d="M 110 50 C 85 80 60 120 40 155" stroke="#FFFFFF" stroke-width="1" opacity="0.6"/>
+      <path d="M 10 155 C -8 120 -2 80 20 50 C 30 80 25 120 10 155 Z" fill="url(#leafTranslucent3)" opacity="0.65"/>
+      <path d="M 32 155 C 18 120 28 85 55 65 C 58 95 48 130 32 155 Z" fill="url(#leafTranslucent1)" opacity="0.8"/>
+      <path d="M 20 155 C 2 130 10 100 32 80 C 36 105 30 132 20 155 Z" fill="url(#leafTranslucent2)" opacity="0.7"/>
+      <path d="M 50 155 C 62 125 92 105 110 95 C 98 122 75 142 50 155 Z" fill="url(#leafTranslucent3)" opacity="0.75"/>
+      <path d="M 15 155 C 2 135 10 115 28 100 C 30 120 24 140 15 155 Z" fill="url(#leafTranslucent1)" opacity="0.85"/>
+      <path d="M 38 155 C 48 132 68 122 82 118 C 72 136 58 148 38 155 Z" fill="url(#leafTranslucent2)" opacity="0.85"/>
+
+      <g transform="translate(50, 75) scale(0.85)">
+        <circle cx="-8" cy="0" r="5.5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="8" cy="0" r="5.5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="0" cy="-8" r="5.5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="0" cy="8" r="5.5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="-5.5" cy="-5.5" r="4.8" fill="url(#flowerPetalSoft)"/>
+        <circle cx="5.5" cy="-5.5" r="4.8" fill="url(#flowerPetalSoft)"/>
+        <circle cx="-5.5" cy="5.5" r="4.8" fill="url(#flowerPetalSoft)"/>
+        <circle cx="5.5" cy="5.5" r="4.8" fill="url(#flowerPetalSoft)"/>
+        <circle cx="0" cy="0" r="3.8" fill="url(#flowerGoldSoft)"/>
+      </g>
+      <g transform="translate(85, 105) scale(0.65)">
+        <circle cx="-7" cy="0" r="5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="7" cy="0" r="5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="0" cy="-7" r="5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="0" cy="7" r="5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="0" cy="0" r="3.2" fill="url(#flowerGoldSoft)"/>
+      </g>
+      <g transform="translate(18, 90) scale(0.6)">
+        <path d="M 0 8 C -6 0 0 -10 0 -10 C 0 -10 6 0 0 8 Z" fill="url(#flowerPetalSoft)"/>
+        <circle cx="0" cy="1.5" r="2.8" fill="url(#flowerGoldSoft)"/>
+      </g>
+    </g>
+
+    <g id="plants-cluster-right" transform="translate(775, 320)">
+      <path d="M 85 155 C 105 110 102 50 75 15 C 62 45 68 105 85 155 Z" fill="url(#leafTranslucent1)" opacity="0.85"/>
+      <path d="M 75 15 C 74 60 78 110 85 155" stroke="#FFFFFF" stroke-width="1" opacity="0.6"/>
+      <path d="M 70 155 C 60 105 25 70 0 50 C 5 85 35 125 70 155 Z" fill="url(#leafTranslucent2)" opacity="0.75"/>
+      <path d="M 0 50 C 25 80 50 120 70 155" stroke="#FFFFFF" stroke-width="1" opacity="0.6"/>
+      <path d="M 100 155 C 118 120 112 80 90 50 C 80 80 85 120 100 155 Z" fill="url(#leafTranslucent3)" opacity="0.65"/>
+      <path d="M 78 155 C 92 120 82 85 55 65 C 52 95 62 130 78 155 Z" fill="url(#leafTranslucent1)" opacity="0.8"/>
+      <path d="M 90 155 C 108 130 100 100 78 80 C 74 105 80 132 90 155 Z" fill="url(#leafTranslucent2)" opacity="0.7"/>
+      <path d="M 60 155 C 48 125 18 105 0 95 C 12 122 35 142 60 155 Z" fill="url(#leafTranslucent3)" opacity="0.75"/>
+      <path d="M 95 155 C 108 135 100 115 82 100 C 80 120 86 140 95 155 Z" fill="url(#leafTranslucent1)" opacity="0.85"/>
+      <path d="M 72 155 C 62 132 42 122 28 118 C 38 136 52 148 72 155 Z" fill="url(#leafTranslucent2)" opacity="0.85"/>
+
+      <g transform="translate(60, 75) scale(0.85)">
+        <circle cx="-8" cy="0" r="5.5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="8" cy="0" r="5.5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="0" cy="-8" r="5.5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="0" cy="8" r="5.5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="-5.5" cy="-5.5" r="4.8" fill="url(#flowerPetalSoft)"/>
+        <circle cx="5.5" cy="-5.5" r="4.8" fill="url(#flowerPetalSoft)"/>
+        <circle cx="-5.5" cy="5.5" r="4.8" fill="url(#flowerPetalSoft)"/>
+        <circle cx="5.5" cy="5.5" r="4.8" fill="url(#flowerPetalSoft)"/>
+        <circle cx="0" cy="0" r="3.8" fill="url(#flowerGoldSoft)"/>
+      </g>
+      <g transform="translate(25, 105) scale(0.65)">
+        <circle cx="-7" cy="0" r="5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="7" cy="0" r="5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="0" cy="-7" r="5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="0" cy="7" r="5" fill="url(#flowerPetalSoft)"/>
+        <circle cx="0" cy="0" r="3.2" fill="url(#flowerGoldSoft)"/>
+      </g>
+      <g transform="translate(92, 90) scale(0.6)">
+        <path d="M 0 8 C -6 0 0 -10 0 -10 C 0 -10 6 0 0 8 Z" fill="url(#flowerPetalSoft)"/>
+        <circle cx="0" cy="1.5" r="2.8" fill="url(#flowerGoldSoft)"/>
+      </g>
+    </g>
+  <!-- =================================================================
+       ASSET LAYER 5: IMMIGRATION OFFICER CHARACTER (BALANCED PROPORTIONS)
+       ================================================================= -->
+  <!-- Officer Ground Shadow inside deep corridor -->
+  <ellipse cx="450" cy="435" rx="75" ry="13" class="base-shadow"/>
+
+  <g id="character-officer" transform="translate(195, 2) scale(1.02)">
+    <!-- Scratch indicator arcs -->
+    <g class="scratch-line" stroke="#64748b" stroke-width="2.4" stroke-linecap="round" fill="none">
+      <path d="M 166,42 C 162,48 162,56 167,62"/>
+      <path d="M 174,37 C 168,46 169,58 176,66"/>
+    </g>
+
+    <!-- Right Uniform Arm & Natural Hand (Viewer's Right) -->
+    <g class="character-body">
+      <path d="M 304,148 Q 338,185 334,250 L 310,250 Q 314,185 290,158 Z" fill="url(#uniform)"/>
+      <!-- Cuff & Hand -->
+      <path d="M 310,246 C 310,242 334,242 334,246 L 335,268 C 335,280 329,294 318,294 C 308,294 306,280 306,268 Z" fill="url(#skin)"/>
+      <path d="M 314,272 C 314,284 317,288 320,288 C 323,288 326,284 326,272" stroke="#d58b68" stroke-width="1.4" fill="none"/>
+    </g>
+
+    <!-- Character Shoes & Foot Grounding -->
+    <g id="char-shoes">
+      <!-- Left Shoe (Viewer's Left) -->
+      <path d="M 192,406 C 190,417 204,423 242,421 C 245,417 244,407 238,406 Z" fill="#0f172a"/>
+      <ellipse cx="214" cy="415" rx="14" ry="2.8" fill="#334155" opacity="0.8"/>
+      <path d="M 191,419 C 206,424 230,424 241,420 L 241,421 C 229,425 205,425 190,420 Z" fill="#000000"/>
+
+      <!-- Right Shoe (Viewer's Right) -->
+      <path d="M 308,406 C 310,417 296,423 258,421 C 255,417 256,407 262,406 Z" fill="#0f172a"/>
+      <ellipse cx="286" cy="415" rx="14" ry="2.8" fill="#334155" opacity="0.8"/>
+      <path d="M 309,419 C 294,424 270,424 259,420 L 259,421 C 271,425 295,425 310,420 Z" fill="#000000"/>
+    </g>
+
+    <!-- Well-Proportioned Athletic Trousers / Legs (160px Balanced Length) -->
+    <g id="char-legs" class="character-body">
+      <!-- Left Leg (Viewer's Left) -->
+      <path d="M 202,254 L 194,406 C 194,410 198,412 244,412 L 247,266 Z" fill="url(#uniform)"/>
+      <!-- Right Leg (Viewer's Right) -->
+      <path d="M 253,266 L 256,412 C 302,412 306,410 306,406 L 298,254 Z" fill="url(#uniform)"/>
+      <!-- Crotch Shadow / Seam -->
+      <path d="M 247,266 L 250,282 L 253,266 Z" fill="#0f172a"/>
+      <!-- Trouser Creases (Front Formal Ironed Creases) -->
+      <line x1="220" y1="262" x2="218" y2="406" stroke="#111827" stroke-width="1.4" opacity="0.65"/>
+      <line x1="280" y1="262" x2="282" y2="406" stroke="#111827" stroke-width="1.4" opacity="0.65"/>
+      <!-- Gold Side Lampasse / Piping Stripes -->
+      <line x1="202" y1="254" x2="194" y2="406" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="298" y1="254" x2="306" y2="406" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+
+    <!-- Character Well-Proportioned Torso & Uniform (115px Height) -->
+    <g class="character-body">
+      <!-- Torso -->
+      <path d="M 194,142 C 205,128 295,128 306,142 L 310,246 C 310,246 285,252 250,252 C 215,252 190,246 190,246 Z" fill="url(#uniform)"/>
+      
+      <!-- Waist Belt & Gold Buckle (Slim & Crisp) -->
+      <rect x="198" y="244" width="104" height="12" rx="2" fill="#111827"/>
+      <line x1="200" y1="246" x2="300" y2="246" stroke="#374151" stroke-width="0.6" stroke-dasharray="2,2"/>
+      <line x1="200" y1="254" x2="300" y2="254" stroke="#374151" stroke-width="0.6" stroke-dasharray="2,2"/>
+      <rect x="242" y="241" width="16" height="18" rx="2.5" fill="url(#goldAccent)" stroke="#b45309" stroke-width="1"/>
+      <rect x="246" y="245" width="8" height="10" rx="1" fill="#111827"/>
+      <rect x="249" y="243" width="2" height="14" rx="0.8" fill="url(#goldAccent)"/>
+
+      <!-- Collar, Tie & Neck -->
+      <path d="M 232,118 L 268,118 L 276,150 L 250,162 L 224,150 Z" fill="#f8c4a5"/>
+      <path d="M 224,142 L 246,162 L 220,170 Z" fill="#1f2937"/>
+      <path d="M 276,142 L 254,162 L 280,170 Z" fill="#111827"/>
+      <path d="M 248,162 L 252,162 L 252,244 L 248,244 Z" fill="#111827"/>
+      <!-- Golden Tie Clip -->
+      <rect x="244" y="196" width="14" height="4" rx="1" fill="url(#goldAccent)"/>
+
+      <!-- Badges & Epaulettes -->
+      <!-- Gold Wings Rank Badge Left -->
+      <path d="M 284,168 L 298,171 L 295,186 L 281,183 Z" fill="url(#goldAccent)"/>
+      <circle cx="289" cy="177" r="2.2" fill="#ffffff" opacity="0.8"/>
+      <!-- Name Tag Right -->
+      <rect x="200" y="168" width="24" height="8" rx="1.5" fill="#111827" stroke="#fbbf24" stroke-width="0.8"/>
+      
+      <!-- Shoulder Epaulette Bars -->
+      <line x1="292" y1="142" x2="310" y2="150" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="296" y1="147" x2="314" y2="155" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round"/>
+    </g>
+
+    <!-- Slender Head Group -->
+    <g id="headGroup" class="character-body">
+      <!-- Ears -->
+      <circle cx="198" cy="92" r="12" fill="#f8c4a5"/>
+      <circle cx="198" cy="92" r="7" fill="#f2a785" opacity="0.6"/>
+      
+      <circle cx="302" cy="92" r="12" fill="#f8c4a5"/>
+      <circle cx="302" cy="92" r="7" fill="#f2a785" opacity="0.6"/>
+
+      <!-- Head Base Shape -->
+      <ellipse cx="250" cy="90" rx="52" ry="54" fill="url(#skin)"/>
+
+      <!-- Cute Cheeks (Blush) -->
+      <circle cx="220" cy="104" r="10" fill="url(#blush)"/>
+      <circle cx="280" cy="104" r="10" fill="url(#blush)"/>
+
+      <!-- Hair sideburns / back hair -->
+      <path d="M 198,64 Q 194,114 206,109 Q 202,79 213,64 Z" fill="#1e1b18"/>
+      <path d="M 302,64 Q 306,114 294,109 Q 298,79 287,64 Z" fill="#1e1b18"/>
+
+      <!-- Eyes (Animated Blink) -->
+      <g class="eyeball">
+        <!-- Left Eye -->
+        <ellipse cx="228" cy="94" rx="7" ry="8.5" fill="#1c1917"/>
+        <circle cx="226" cy="91" r="2.8" fill="#ffffff"/>
+        <circle cx="231" cy="97" r="1.2" fill="#ffffff"/>
+
+        <!-- Right Eye -->
+        <ellipse cx="272" cy="94" rx="7" ry="8.5" fill="#1c1917"/>
+        <circle cx="270" cy="91" r="2.8" fill="#ffffff"/>
+        <circle cx="275" cy="97" r="1.2" fill="#ffffff"/>
+      </g>
+
+      <!-- Worried Eyebrows -->
+      <path d="M 218,82 Q 228,74 236,80" fill="none" stroke="#292524" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M 282,82 Q 272,74 264,80" fill="none" stroke="#292524" stroke-width="2.5" stroke-linecap="round"/>
+
+      <!-- Cute Confused/Puzzled Mouth -->
+      <path d="M 244,114 Q 250,118 256,114" fill="none" stroke="#993a3a" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Official Indonesian Immigration Service Cap (Pet PDH Imigrasi) -->
+    <g class="cap-group hat-group" filter="url(#softShadow)">
+      <!-- Cap Crown Body -->
+      <path d="M 196,56 C 192,10 220,-12 250,-12 C 280,-12 308,10 304,56 Z" fill="url(#uniform)"/>
+      <!-- Cap Crown Highlights -->
+      <path d="M 204,44 C 204,14 234,4 246,4 C 224,10 214,24 212,48 Z" fill="#ffffff" opacity="0.18"/>
+      
+      <!-- Cap Black Band -->
+      <path d="M 192,54 C 220,40 280,40 308,54 L 304,64 C 280,50 220,50 192,64 Z" fill="#111827"/>
+      
+      <!-- Cap Visor (Black Shiny Brim) -->
+      <path d="M 186,56 C 218,36 282,36 314,56 C 284,74 216,74 186,56 Z" fill="#0b0f19" stroke="#1f2937" stroke-width="1.2"/>
+      <path d="M 194,56 C 220,44 280,44 306,56" stroke="#ffffff" stroke-width="1.2" fill="none" opacity="0.3"/>
+      
+      <!-- Golden Decorative Chin Strap Cord -->
+      <path d="M 194,52 Q 250,38 306,52" fill="none" stroke="url(#goldAccent)" stroke-width="3" stroke-linecap="round"/>
+
+      <!-- Garuda / Immigration Gold Emblem on Cap (Bhumi Pura Wira Wibawa) -->
+      <g transform="translate(250, 18) scale(0.68)">
+        <path d="M 0 -18 C -14 -18, -22 -4, -20 8 C -12 6, -6 2, 0 8 C 6 2, 12 6, 20 8 C 22 -4, 14 -18, 0 -18 Z" fill="url(#goldAccent)"/>
+        <path d="M 0 -18 Q 4 -22 6 -16 Q 2 -14 0 -18 Z" fill="#fbbf24"/>
+        <path d="M -7 -6 L 7 -6 L 7 2 C 7 7, 0 10, 0 10 C 0 10, -7 7, -7 2 Z" fill="#b91c1c" stroke="#111827" stroke-width="1"/>
+        <path d="M 0 -6 L 7 -6 L 7 2 C 7 7, 0 10, 0 10 Z" fill="#ffffff"/>
+      </g>
+    </g>
+
+    <!-- Animated Scratching Arm & Natural Hand (Foreground Overlay) -->
+    <g class="arm-scratch">
+      <!-- Raised Sleeve -->
+      <path d="M 206,150 C 186,140 172,90 195,58 L 214,72 C 200,92 208,122 222,138 Z" fill="url(#uniform)"/>
+      <!-- Shoulder Epaulet -->
+      <line x1="198" y1="140" x2="216" y2="148" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round"/>
+      
+      <!-- Hand scratching cap edge -->
+      <path d="M 196,60 C 187,55 182,40 188,28 C 194,17 207,18 212,24 C 215,27 218,33 216,41 C 214,50 206,61 196,60 Z" fill="url(#skin)" filter="url(#softShadow)"/>
+      <!-- Curled Scratching Fingers -->
+      <path d="M 193,30 C 191,23 199,21 202,26 C 205,30 203,37 200,39" fill="none" stroke="#d58b68" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M 200,25 C 200,19 208,18 209,24 C 211,28 209,34 206,36" fill="none" stroke="#d58b68" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M 208,25 C 210,21 216,22 215,28 C 214,33 213,37 210,39" fill="none" stroke="#d58b68" stroke-width="1.6" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- ================= GROUND SHADOWS ================= -->
+  <ellipse cx="160" cy="460" rx="90" ry="20" class="base-shadow"/>
+  <ellipse cx="740" cy="460" rx="90" ry="20" class="base-shadow"/>
+  <ellipse cx="450" cy="465" rx="100" ry="16" class="base-shadow"/>
+
+  <!-- ================= LEFT TURNSTILE BARRIER ================= -->
+  <g id="left-turnstile">
+    <path class="gate-body" d="M 85 105 C 85 90, 120 75, 160 75 C 205 75, 240 90, 240 105 L 240 435 C 240 455, 205 465, 160 465 C 115 465, 85 455, 85 435 Z"/>
+    <path class="gate-inner" d="M 150 145 L 220 125 L 220 405 L 150 425 Z"/>
+
+    <rect x="188" y="130" width="16" height="280" rx="6" class="gate-pillar"/>
+    <rect x="184" y="165" width="24" height="18" rx="3" class="gate-top-bevel"/>
+    <rect x="184" y="325" width="24" height="18" rx="3" class="gate-top-bevel"/>
+
+    <path class="gate-top-bevel" d="M 85 105 C 85 92, 120 78, 160 78 C 200 78, 235 92, 235 105 L 230 115 C 230 115, 195 100, 160 100 C 125 100, 90 115, 90 115 Z"/>
+    
+    <path d="M 86 112 C 100 118, 135 125, 162 125" fill="none" class="anim-led-screen" stroke-width="4.5" stroke-linecap="round"/>
+    
+    <rect x="100" y="86" width="38" height="16" rx="4" fill="#1e293b"/>
+    <circle cx="119" cy="94" r="5" class="anim-led-screen"/>
+
+    <!-- Anchored Solid Siren Light (Non-Floaty) -->
+    <rect x="184" y="68" width="28" height="10" rx="3" fill="#475569" stroke="#334155" stroke-width="1.5"/>
+    <rect x="192" y="48" width="12" height="22" fill="url(#pillar-grad)" stroke="#334155" stroke-width="1.2"/>
+    <rect x="186" y="46" width="24" height="6" rx="2" fill="#334155"/>
+    <path d="M 188 46 C 188 30, 208 30, 208 46 Z" class="anim-alarm-light"/>
+    <ellipse cx="198" cy="38" rx="4" ry="2" fill="#ffffff" opacity="0.6"/>
+  </g>
+
+  <!-- ================= RIGHT TURNSTILE BARRIER ================= -->
+  <g id="right-turnstile">
+    <path class="gate-body" d="M 660 105 C 660 90, 695 75, 740 75 C 785 75, 815 90, 815 105 L 815 435 C 815 455, 785 465, 740 465 C 695 465, 660 455, 660 435 Z"/>
+    <path class="gate-inner" d="M 680 125 L 750 145 L 750 425 L 680 405 Z"/>
+
+    <rect x="696" y="130" width="16" height="280" rx="6" class="gate-pillar"/>
+    <rect x="692" y="165" width="24" height="18" rx="3" class="gate-top-bevel"/>
+    <rect x="692" y="325" width="24" height="18" rx="3" class="gate-top-bevel"/>
+
+    <path class="gate-top-bevel" d="M 665 105 C 665 92, 700 78, 740 78 C 780 78, 815 92, 815 105 L 810 115 C 810 115, 775 100, 740 100 C 705 100, 670 115, 670 115 Z"/>
+    
+    <path d="M 738 125 C 765 125, 800 118, 814 112" fill="none" class="anim-led-screen" stroke-width="4.5" stroke-linecap="round"/>
+    
+    <rect x="762" y="86" width="38" height="16" rx="4" fill="#1e293b"/>
+    <circle cx="781" cy="94" r="5" class="anim-led-screen"/>
+
+    <!-- Anchored Solid Siren Light (Non-Floaty) -->
+    <rect x="688" y="68" width="28" height="10" rx="3" fill="#475569" stroke="#334155" stroke-width="1.5"/>
+    <rect x="696" y="48" width="12" height="22" fill="url(#pillar-grad)" stroke="#334155" stroke-width="1.2"/>
+    <rect x="690" y="46" width="24" height="6" rx="2" fill="#334155"/>
+    <path d="M 692 46 C 692 30, 712 30, 712 46 Z" class="anim-alarm-light"/>
+    <ellipse cx="702" cy="38" rx="4" ry="2" fill="#ffffff" opacity="0.6"/>
+  </g>
+
+  <!-- ================= RETRACTABLE / SWINGING GLASS WINGS ================= -->
+  <g class="anim-left-wing">
+    <rect x="220" y="120" width="220" height="200" class="glass-wing"/>
+    <line x1="230" y1="180" x2="430" y2="180" class="glass-red-strip"/>
+    <path d="M 230 130 L 320 130 L 250 310 L 230 310 Z" fill="#ffffff" fill-opacity="0.2"/>
+  </g>
+
+  <g class="anim-right-wing">
+    <rect x="460" y="120" width="220" height="200" class="glass-wing"/>
+    <line x1="470" y1="180" x2="670" y2="180" class="glass-red-strip"/>
+    <path d="M 470 130 L 560 130 L 490 310 L 470 310 Z" fill="#ffffff" fill-opacity="0.2"/>
+  </g>
+
+  <!-- ================= FRONT STANDING KIOSK / MONITOR ("SISTEM MACET") - FOREGROUND ================= -->
+  <g id="front-kiosk-monitor" filter="url(#softShadow)" transform="translate(615, 230) scale(0.95)">
+    <!-- Kiosk Ground Shadow -->
+    <ellipse cx="90" cy="275" rx="75" ry="14" fill="#0f172a" opacity="0.3"/>
+
+    <!-- Kiosk Pedestal Base -->
+    <path d="M 35 260 L 145 260 L 155 272 C 155 275 145 278 90 278 C 35 278 25 275 25 272 Z" fill="#334155" stroke="#1e293b" stroke-width="2"/>
+    <!-- Kiosk Central Column / Neck -->
+    <path d="M 60 170 L 120 170 L 128 262 L 52 262 Z" fill="url(#kioskBody)" stroke="#475569" stroke-width="1.8"/>
+    <line x1="90" y1="172" x2="90" y2="260" stroke="#64748b" stroke-width="1.2" stroke-dasharray="4,4" opacity="0.7"/>
+
+    <!-- Upper Terminal Console Housing -->
+    <rect x="5" y="10" width="170" height="165" rx="20" fill="url(#kioskBody)" stroke="#64748b" stroke-width="2.5"/>
+    <!-- Glossy Highlight Curve -->
+    <path d="M 12 36 C 12 20 25 14 42 14 L 138 14 C 155 14 168 20 168 36" stroke="#94a3b8" stroke-width="1.8" fill="none" opacity="0.75"/>
+
+    <!-- Inner Screen Bezel Frame -->
+    <rect x="16" y="24" width="148" height="138" rx="12" fill="url(#screenBezel)" stroke="#0f172a" stroke-width="2"/>
+
+    <!-- Screen Header Bar: Status Offline -->
+    <rect x="16" y="24" width="148" height="24" rx="12" fill="#1e293b" fill-opacity="0.95"/>
+    <rect x="16" y="36" width="148" height="12" fill="#1e293b" fill-opacity="0.95"/>
+    
+    <!-- Pulsing Red Indicator LED -->
+    <circle cx="30" cy="36" r="4.5" fill="#ef4444" filter="drop-shadow(0 0 5px #ef4444)" class="screen-glitch"/>
+    <text x="40" y="40" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="8.5" fill="#f87171" letter-spacing="1">
+      SYSTEM OFFLINE
+    </text>
+    <rect x="122" y="30" width="34" height="12" rx="3" fill="#dc2626" fill-opacity="0.3" stroke="#ef4444" stroke-width="0.8"/>
+    <text x="139" y="39" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="7.5" fill="#fca5a5">
+      ERR 500
+    </text>
+
+    <!-- Screen Content with Glitch Animation -->
+    <g class="screen-glitch">
+      <!-- Broken Screen / Server Display Icon -->
+      <g filter="url(#errorGlow)" stroke="#38bdf8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(-160, -398)">
+        <rect x="225" y="450" width="50" height="34" rx="3.5" fill="#1e293b" fill-opacity="0.7"/>
+        <path d="M 218,488 L 282,488 C 284,488 285,491 283,492 L 277,497 L 223,497 L 217,492 C 215,491 216,488 218,488 Z" fill="#334155"/>
+        <line x1="242" y1="492" x2="258" y2="492" stroke="#38bdf8" stroke-width="1.8"/>
+        <!-- Lightning Crack inside display -->
+        <path d="M 252,452 L 247,462 L 254,467 L 245,481" stroke="#f87171" stroke-width="2.4"/>
+        <circle cx="260" cy="462" r="1.2" fill="#38bdf8"/>
+        <circle cx="240" cy="474" r="1" fill="#ef4444"/>
+      </g>
+
+      <!-- Main Heading: Sistem Macet -->
+      <text x="90" y="125" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="14.5" fill="#ffffff" letter-spacing="0.5">
+        Sistem Macet
+      </text>
+      <!-- Subtext: (System Jam) -->
+      <text x="90" y="142" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="11" fill="#93c5fd" letter-spacing="0.2">
+        (System Jam)
+      </text>
+      <!-- Info Divider Bar -->
+      <line x1="35" y1="149" x2="145" y2="149" stroke="#334155" stroke-width="1"/>
+    </g>
+
+    <!-- Card / RFID Scanner Slot at Base of Screen -->
+    <rect x="55" y="180" width="70" height="6" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="90" cy="198" r="4" fill="#64748b"/>
+  </g>
+
+  <!-- ================= ANIMATED PASSPORT & SCANNING EFFECT (LEFT SCANNER TRAY) ================= -->
+  <g class="anim-passport">
+    <!-- 3D Visible Paper Pages Side/Top Edge -->
+    <path d="M 172 217 C 205 210, 275 210, 308 217 L 308 391 C 275 384, 205 384, 172 391 Z" fill="#F0F4F8" stroke="#CBD5E1" stroke-width="1" />
+
+    <!-- Passport Cover Drop Shadow -->
+    <rect x="173" y="217" width="134" height="176" rx="7" fill="#091424" opacity="0.25" />
+
+    <!-- Passport Real Image Cover -->
+    <image href="assets/illustration/passport.png" x="175" y="215" width="130" height="174" preserveAspectRatio="none" clip-path="url(#passportImageClip)" />
+
+    <!-- Protective Border & Realistic Spine Highlight Reflection -->
+    <rect x="175" y="215" width="130" height="174" rx="7" fill="none" stroke="#0D1B33" stroke-width="1.6" opacity="0.6" />
+    <line x1="179" y1="215" x2="179" y2="389" stroke="#FFFFFF" stroke-width="1.4" opacity="0.3" stroke-linecap="round" />
+
+    <!-- Green Laser Scanning Line Overlay -->
+    <g class="anim-scan-ray">
+      <rect x="150" y="225" width="180" height="24" fill="url(#laser-grad)"/>
+      <line x1="145" y1="237" x2="335" y2="237" stroke="#4ade80" stroke-width="2.2" filter="drop-shadow(0 0 4px #22c55e)"/>
+    </g>
+  </g>
+  </g>
+</svg>

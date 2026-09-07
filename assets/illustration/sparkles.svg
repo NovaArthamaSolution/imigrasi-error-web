@@ -1,0 +1,43 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+<![CDATA[
+
+      @keyframes twinkleFastA {
+        0%, 100% { opacity: 0.12; transform: scale(0.4) rotate(0deg); filter: drop-shadow(0 0 0px transparent); }
+        50% { opacity: 1; transform: scale(1.45) rotate(45deg); filter: drop-shadow(0 0 8px #60A5FA) drop-shadow(0 0 14px #FFFFFF); }
+      }
+      @keyframes twinkleFastB {
+        0%, 100% { opacity: 0.15; transform: scale(0.45); filter: drop-shadow(0 0 0px transparent); }
+        50% { opacity: 1; transform: scale(1.4); filter: drop-shadow(0 0 7px #38BDF8) drop-shadow(0 0 12px #FFFFFF); }
+      }
+      .sparkle-1 { animation: twinkleFastA 1.8s ease-in-out infinite; transform-origin: 48px 120px; }
+      .sparkle-2 { animation: twinkleFastB 2.2s ease-in-out infinite 0.6s; transform-origin: 180px 160px; }
+      .sparkle-3 { animation: twinkleFastA 1.6s ease-in-out infinite 1.1s; transform-origin: 240px 90px; }
+      .sparkle-4 { animation: twinkleFastB 2.0s ease-in-out infinite 0.4s; transform-origin: 30px 240px; }
+    
+]]>
+</style>
+  </defs>
+
+  <!-- Diamond 1 -->
+  <g class="sparkle-1">
+    <path d="M48 114 L54 120 L48 126 L42 120 Z" fill="#93C5FD" opacity="0.5" stroke="#60A5FA" stroke-width="2" />
+    <circle cx="48" cy="120" r="1.8" fill="#FFFFFF" />
+  </g>
+  <!-- Plus 1 -->
+  <g class="sparkle-2">
+    <path d="M180 155 V165 M175 160 H185" stroke="#38BDF8" stroke-width="2.6" stroke-linecap="round" />
+    <circle cx="180" cy="160" r="2" fill="#FFFFFF" />
+  </g>
+  <!-- Diamond 2 -->
+  <g class="sparkle-3">
+    <path d="M240 86 L244 90 L240 94 L236 90 Z" fill="#60A5FA" opacity="0.6" stroke="#38BDF8" stroke-width="2" />
+    <circle cx="240" cy="90" r="1.6" fill="#FFFFFF" />
+  </g>
+  <!-- Plus 2 -->
+  <g class="sparkle-4">
+    <path d="M30 235 V245 M25 240 H35" stroke="#93C5FD" stroke-width="2.4" stroke-linecap="round" />
+    <circle cx="30" cy="240" r="1.8" fill="#FFFFFF" />
+  </g>
+</svg>

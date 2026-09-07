@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 650" width="100%" height="100%">
+  <defs>
+    <style>
+<![CDATA[
+
+      /* Indonesian Green Passport Theme */
+      .passport-body { fill: #1b5e3a; stroke: #0a2e1c; stroke-width: 4; stroke-linejoin: round; }
+      .passport-edge { fill: #134229; }
+      .gold-text { fill: #f3c34d; font-family: 'Arial Black', sans-serif; font-weight: 900; }
+      .gold-symbol { fill: #f3c34d; stroke: #997316; stroke-width: 1.5; }
+      .limb { fill: #134229; stroke: #0a2e1c; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .shoe { fill: #1e242b; stroke: #0c0f12; stroke-width: 3.5; }
+      .skin { fill: #f8c29d; stroke: #2d1d17; stroke-width: 3; }
+      .suitcase-body { fill: #f4ab22; stroke: #996303; stroke-width: 3.5; stroke-linejoin: round; }
+      .suitcase-accent { fill: #df9410; stroke: #805000; stroke-width: 2.5; }
+      .wheel { fill: #23272e; stroke: #111418; stroke-width: 3; }
+
+      /* Animation Setup */
+      .anim-body-wobble {
+        transform-origin: 320px 480px;
+        animation: runWobble 0.8s ease-in-out infinite alternate;
+      }
+      .anim-left-leg {
+        transform-origin: 290px 450px;
+        animation: legLeftRun 0.8s ease-in-out infinite alternate;
+      }
+      .anim-right-leg {
+        transform-origin: 350px 450px;
+        animation: legRightRun 0.8s ease-in-out infinite alternate;
+      }
+      .anim-scratch-arm {
+        transform-origin: 405px 340px;
+        animation: scratchHead 1.6s ease-in-out infinite alternate;
+      }
+      .anim-pull-arm {
+        transform-origin: 235px 385px;
+        animation: pullSuitcase 0.8s ease-in-out infinite alternate;
+      }
+      .anim-suitcase {
+        transform-origin: 195px 520px;
+        animation: rollLuggage 0.8s ease-in-out infinite alternate;
+      }
+      .anim-cloud {
+        transform-origin: 440px 180px;
+        animation: cloudFloat 2.4s ease-in-out infinite alternate;
+      }
+      .anim-eye-blink {
+        transform-origin: 340px 330px;
+        animation: blinkEyes 3.6s infinite;
+      }
+
+      /* Keyframes */
+      @keyframes runWobble {
+        0% { transform: translateY(0px) rotate(-14deg); }
+        100% { transform: translateY(-8px) rotate(-10deg); }
+      }
+      @keyframes legLeftRun {
+        0% { transform: rotate(18deg) translateY(-4px); }
+        100% { transform: rotate(-22deg) translateY(2px); }
+      }
+      @keyframes legRightRun {
+        0% { transform: rotate(-24deg) translateY(3px); }
+        100% { transform: rotate(14deg) translateY(-5px); }
+      }
+      @keyframes scratchHead {
+        0% { transform: rotate(0deg); }
+        50% { transform: rotate(-8deg) translateY(-2px); }
+        100% { transform: rotate(6deg) translateY(2px); }
+      }
+      @keyframes pullSuitcase {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(-6deg) translateY(2px); }
+      }
+      @keyframes rollLuggage {
+        0% { transform: rotate(0deg) translateY(0px); }
+        100% { transform: rotate(-3deg) translateY(-3px); }
+      }
+      @keyframes cloudFloat {
+        0% { transform: scale(0.96) translateY(4px); }
+        100% { transform: scale(1.04) translateY(-6px); }
+      }
+      @keyframes blinkEyes {
+        0%, 90%, 100% { transform: scaleY(1); }
+        94% { transform: scaleY(0.1); }
+      }
+    
+]]>
+</style>
+  </defs>
+
+  <!-- ================= SUITCASE (PULLED BEHIND) ================= -->
+  <g class="anim-suitcase">
+    <g id="luggage-handle">
+      <line x1="225" y1="410" x2="200" y2="465" stroke="#333a42" stroke-width="4" stroke-linecap="round"/>
+      <line x1="240" y1="416" x2="215" y2="470" stroke="#333a42" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 220 410 L 246 420" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+    </g>
+
+    <g transform="translate(195, 485) rotate(22)">
+      <rect x="-42" y="-55" width="84" height="105" rx="14" class="suitcase-body"/>
+      <rect x="-36" y="-48" width="72" height="92" rx="10" class="suitcase-accent" fill-opacity="0.35"/>
+      <line x1="-20" y1="-38" x2="-20" y2="35" stroke="#df9410" stroke-width="3" stroke-linecap="round"/>
+      <line x1="0" y1="-38" x2="0" y2="35" stroke="#df9410" stroke-width="3" stroke-linecap="round"/>
+      <line x1="20" y1="-38" x2="20" y2="35" stroke="#df9410" stroke-width="3" stroke-linecap="round"/>
+      <path d="M -42 -35 Q -42 -55 -22 -55" fill="none" stroke="#7a4b00" stroke-width="3"/>
+      <path d="M 42 -35 Q 42 -55 22 -55" fill="none" stroke="#7a4b00" stroke-width="3"/>
+      <path d="M -42 32 Q -42 50 -22 50" fill="none" stroke="#7a4b00" stroke-width="3"/>
+      <path d="M 42 32 Q 42 50 22 50" fill="none" stroke="#7a4b00" stroke-width="3"/>
+      <circle cx="-28" cy="56" r="8" class="wheel"/>
+      <circle cx="-28" cy="56" r="3" fill="#656e7b"/>
+      <circle cx="28" cy="56" r="8" class="wheel"/>
+      <circle cx="28" cy="56" r="3" fill="#656e7b"/>
+    </g>
+  </g>
+
+  <!-- ================= MAIN CHARACTER & ATTACHED LEGS ================= -->
+  <g class="anim-body-wobble">
+    
+    <!-- Left Leg (Seamlessly rooted from bottom of passport) -->
+    <g class="anim-left-leg">
+      <path class="limb" d="M 275 445 C 270 485, 255 515, 235 530"/>
+      <path class="shoe" d="M 240 525 C 235 514, 218 518, 210 528 C 205 536, 218 548, 236 546 C 242 544, 248 534, 240 525 Z"/>
+    </g>
+
+    <!-- Right Leg (Seamlessly rooted from bottom of passport) -->
+    <g class="anim-right-leg">
+      <path class="limb" d="M 355 445 C 375 485, 390 515, 415 535"/>
+      <path class="shoe" d="M 410 530 C 405 518, 422 510, 435 516 C 445 522, 448 538, 430 548 C 420 552, 412 540, 410 530 Z"/>
+    </g>
+
+    <!-- Arm Pulling Luggage -->
+    <g class="anim-pull-arm">
+      <path class="limb" d="M 230 380 C 205 390, 195 408, 192 422"/>
+      <path class="skin" d="M 198 422 C 198 412, 178 412, 178 425 C 178 435, 198 439, 198 422 Z"/>
+      <circle cx="188" cy="423" r="2.8" fill="#e0956b"/>
+    </g>
+
+    <!-- Passport Body (Indonesian Green Edition) -->
+    <g id="passport-book">
+      <!-- 3D Book Thickness Edge -->
+      <rect x="226" y="196" width="186" height="268" rx="20" class="passport-edge"/>
+
+      <!-- Cover Face -->
+      <rect x="220" y="190" width="186" height="268" rx="20" class="passport-body"/>
+
+      <!-- Spine Line -->
+      <line x1="234" y1="192" x2="234" y2="456" stroke="#0a2e1c" stroke-width="3"/>
+
+      <!-- Gold Hot-Stamped Headings -->
+      <text x="315" y="235" class="gold-text" font-size="10.5" letter-spacing="1.5" text-anchor="middle">REPUBLIK INDONESIA</text>
+      <text x="315" y="395" class="gold-text" font-size="17" letter-spacing="3" text-anchor="middle">PASPOR</text>
+
+      <!-- Biometric Symbol -->
+      <g transform="translate(315, 424)">
+        <rect x="-14" y="-8" width="28" height="16" rx="3" class="gold-symbol"/>
+        <line x1="-14" y1="0" x2="14" y2="0" stroke="#1b5e3a" stroke-width="2.5"/>
+        <circle cx="0" cy="0" r="4.5" fill="#f3c34d" stroke="#1b5e3a" stroke-width="2"/>
+      </g>
+
+      <!-- Faint Gold Coat of Arms (Garuda Silhouette) -->
+      <g transform="translate(315, 280) scale(0.7)" opacity="0.3">
+        <path d="M 0 -25 C -20 -25, -35 -5, -30 15 C -18 12, -8 4, 0 14 C 8 4, 18 12, 30 15 C 35 -5, 20 -25, 0 -25 Z" fill="#f3c34d"/>
+      </g>
+
+      <!-- ================= STRONGLY CONFUSED & WORRIED FACE ================= -->
+      <!-- Asymmetrical Confused Eyebrows -->
+      <path d="M 264 296 Q 278 276 298 290" fill="none" stroke="#0a2e1c" stroke-width="4.5" stroke-linecap="round"/>
+      <path d="M 332 290 Q 350 274 366 298" fill="none" stroke="#0a2e1c" stroke-width="4.5" stroke-linecap="round"/>
+
+      <!-- Animated Eyes Looking Up & Aside in Confusion -->
+      <g class="anim-eye-blink">
+        <!-- Left Eye -->
+        <ellipse cx="286" cy="324" rx="17" ry="21" fill="#ffffff" stroke="#0a2e1c" stroke-width="3.5"/>
+        <ellipse cx="280" cy="320" rx="9.5" ry="12" fill="#13161c"/>
+        <circle cx="276" cy="315" r="3.8" fill="#ffffff"/>
+        
+        <!-- Right Eye -->
+        <ellipse cx="344" cy="328" rx="17" ry="21" fill="#ffffff" stroke="#0a2e1c" stroke-width="3.5"/>
+        <ellipse cx="338" cy="324" rx="9.5" ry="12" fill="#13161c"/>
+        <circle cx="334" cy="319" r="3.8" fill="#ffffff"/>
+      </g>
+
+      <!-- Confused/Gasping Wobbly Open Mouth -->
+      <path d="M 294 358 Q 315 344 336 360 C 334 382 294 380 294 358 Z" fill="#8f2626" stroke="#0a2e1c" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M 302 368 Q 315 358 328 368 Q 315 376 302 368 Z" fill="#e57373"/>
+    </g>
+
+    <!-- Scratching Arm Raised to Head -->
+    <g class="anim-scratch-arm">
+      <path class="limb" d="M 390 340 C 425 345, 435 305, 400 280"/>
+      <path class="skin" d="M 402 284 C 405 272, 388 268, 384 278 C 380 288, 396 294, 402 284 Z"/>
+      <path d="M 390 274 Q 396 280 398 288" fill="none" stroke="#2d1d17" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- ================= FLOATING THOUGHT CLOUD WITH QUESTION MARKS ================= -->
+  <g class="anim-cloud">
+    <circle cx="395" cy="195" r="4" fill="#ffffff" stroke="#8fa6c4" stroke-width="2"/>
+    <circle cx="410" cy="170" r="7" fill="#ffffff" stroke="#8fa6c4" stroke-width="2.5"/>
+
+    <path d="
+      M 430 160
+      C 415 160, 405 140, 420 120
+      C 410 100, 435 80, 460 90
+      C 475 75, 510 80, 515 105
+      C 535 105, 545 130, 535 150
+      C 545 170, 520 190, 495 180
+      C 475 195, 440 185, 430 160 Z
+    " fill="#ffffff" stroke="#8fa6c4" stroke-width="3.5" stroke-linejoin="round"/>
+
+    <!-- '???' Symbols -->
+    <path d="M 445 125 C 445 115, 458 115, 458 125 C 458 135, 450 137, 450 144" fill="none" stroke="#1b5e3a" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="450" cy="152" r="2.2" fill="#1b5e3a"/>
+
+    <path d="M 470 118 C 470 104, 490 104, 490 118 C 490 130, 478 134, 478 144" fill="none" stroke="#0a2e1c" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="478" cy="154" r="2.8" fill="#0a2e1c"/>
+
+    <path d="M 502 125 C 502 115, 515 115, 515 125 C 515 135, 507 137, 507 144" fill="none" stroke="#1b5e3a" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="507" cy="152" r="2.2" fill="#1b5e3a"/>
+  </g>
+</svg>
