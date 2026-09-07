@@ -42,12 +42,12 @@ imigrasi-error-web/
 ├── 403.html                     # Halaman mandiri Error 403
 ├── 404.html                     # Halaman mandiri Error 404
 ├── 500.html                     # Halaman mandiri Error 500
-├── css/
-│   ├── styles.css               # Design system, Inter font, #11375C & #F17425, responsive rules
-│   └── animations.css           # Keyframe animations (float, glow, spinner)
-├── js/
-│   └── main.js                  # Engine dwibahasa (ENG/ID), page reload & clean navigation
 ├── assets/
+│   ├── css/
+│   │   ├── styles.css           # Design system, Inter font, #11375C & #F17425, responsive rules
+│   │   └── animations.css       # Keyframe animations (mesh orbs, float, glow, spinner)
+│   ├── js/
+│   │   └── main.js              # Engine dwibahasa (ENG/ID), page reload & clean navigation
 │   ├── icons/logo-imigrasi.png  # Logo & Favicon resmi Imigrasi
 │   └── illustration/            # Asset 403.png, 404.png, 500.png
 ├── 403/index.html               # Direktori mandiri 403

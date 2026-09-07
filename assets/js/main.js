@@ -113,61 +113,73 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentLang = localStorage.getItem('imigrasi_lang') || 'id';
   if (currentLang !== 'id' && currentLang !== 'en') currentLang = 'id';
 
-  // Read URL query parameter ?code=403 | 404 | 500 (defaults to 404)
-  const urlParams = new URLSearchParams(window.location.search);
-  let requestedCode = urlParams.get('code');
-  if (requestedCode === '400') requestedCode = '404'; // Graceful backward compatibility
-  let currentCode = ['403', '404', '500'].includes(requestedCode) ? requestedCode : '404';
-
   // DOM Elements
   const langToggleBtn = document.getElementById('langToggleBtn');
   const langDropdownWrapper = document.querySelector('.lang-dropdown-wrapper');
   const langCurrentCode = document.getElementById('langCurrentCode');
   const langOptions = document.querySelectorAll('.lang-option');
 
-  const modeBtn403 = document.getElementById('modeBtn403');
-  const modeBtn404 = document.getElementById('modeBtn404');
-  const modeBtn500 = document.getElementById('modeBtn500');
-
   const view403 = document.getElementById('view-403');
   const view404 = document.getElementById('view-404');
   const view500 = document.getElementById('view-500');
 
+  // Check if current page is multi-view hub (index.html with multiple error views)
+  const isMultiViewHub = Boolean(view403 && view404 && view500);
+
+  // Determine current code:
+  // 1. From URL parameter (if multi-view hub)
+  // 2. From standalone active view element on the page
+  // 3. From URL pathname
+  let currentCode = '404';
+  const urlParams = new URLSearchParams(window.location.search);
+  const path = window.location.pathname.toLowerCase();
+
+  if (isMultiViewHub) {
+    let requestedCode = urlParams.get('code');
+    if (requestedCode === '400') requestedCode = '404';
+    currentCode = ['403', '404', '500'].includes(requestedCode) ? requestedCode : '404';
+  } else {
+    if (view403) currentCode = '403';
+    else if (view500) currentCode = '500';
+    else if (view404) currentCode = '404';
+    else if (path.includes('403')) currentCode = '403';
+    else if (path.includes('500')) currentCode = '500';
+    else currentCode = '404';
+  }
+
   /**
-   * Switch between 403, 404, and 500 error views cleanly
+   * Switch between 403, 404, and 500 error views (only on multi-view hub)
    */
   function switchErrorCode(code) {
     if (!['403', '404', '500'].includes(code)) code = '404';
     currentCode = code;
 
-    // Update URL query parameter cleanly without full page reload
-    const newUrl = new URL(window.location);
-    newUrl.searchParams.set('code', code);
-    window.history.replaceState({}, '', newUrl);
+    if (isMultiViewHub) {
+      // Hide all views first
+      if (view403) view403.classList.remove('is-active');
+      if (view404) view404.classList.remove('is-active');
+      if (view500) view500.classList.remove('is-active');
 
-    // Hide all views first
-    if (view403) view403.classList.remove('is-active');
-    if (view404) view404.classList.remove('is-active');
-    if (view500) view500.classList.remove('is-active');
-
-    // Deactivate all buttons
-    if (modeBtn403) modeBtn403.classList.remove('is-active');
-    if (modeBtn404) modeBtn404.classList.remove('is-active');
-    if (modeBtn500) modeBtn500.classList.remove('is-active');
-
-    // Activate selected view
-    if (code === '403') {
-      if (view403) view403.classList.add('is-active');
-      if (modeBtn403) modeBtn403.classList.add('is-active');
-      document.title = translations[currentLang].pageTitle403;
-    } else if (code === '500') {
-      if (view500) view500.classList.add('is-active');
-      if (modeBtn500) modeBtn500.classList.add('is-active');
-      document.title = translations[currentLang].pageTitle500;
+      // Activate selected view
+      if (code === '403') {
+        if (view403) view403.classList.add('is-active');
+        document.title = translations[currentLang].pageTitle403;
+      } else if (code === '500') {
+        if (view500) view500.classList.add('is-active');
+        document.title = translations[currentLang].pageTitle500;
+      } else {
+        if (view404) view404.classList.add('is-active');
+        document.title = translations[currentLang].pageTitle404;
+      }
     } else {
-      if (view404) view404.classList.add('is-active');
-      if (modeBtn404) modeBtn404.classList.add('is-active');
-      document.title = translations[currentLang].pageTitle404;
+      // Standalone page: ensure document title matches page code
+      if (currentCode === '403') {
+        document.title = translations[currentLang].pageTitle403;
+      } else if (currentCode === '500') {
+        document.title = translations[currentLang].pageTitle500;
+      } else {
+        document.title = translations[currentLang].pageTitle404;
+      }
     }
   }
 
@@ -211,26 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         opt.classList.remove('is-active');
       }
-    });
-  }
-
-  // Bind Mode Switcher Buttons
-  if (modeBtn403) {
-    modeBtn403.addEventListener('click', (e) => {
-      e.preventDefault();
-      switchErrorCode('403');
-    });
-  }
-  if (modeBtn404) {
-    modeBtn404.addEventListener('click', (e) => {
-      e.preventDefault();
-      switchErrorCode('404');
-    });
-  }
-  if (modeBtn500) {
-    modeBtn500.addEventListener('click', (e) => {
-      e.preventDefault();
-      switchErrorCode('500');
     });
   }
 
