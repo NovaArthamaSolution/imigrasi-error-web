@@ -718,104 +718,12 @@ body {
   filter: blur(42px);
 }
 
-/* =============================================================================
-   BOTTOM UNIFIED SUPPORT CARD & SYSTEM METADATA
-   ============================================================================= */
-.bottom-card {
-  margin-top: 2rem;
-  background: #FFFFFF;
-  border: 1px solid var(--evisa-border);
-  border-radius: var(--radius-lg);
-  padding: 16px 24px;
-  display: grid;
-  grid-template-columns: 1.1fr auto 1.3fr;
-  align-items: center;
-  gap: 24px;
-  box-shadow: var(--shadow-md);
-  position: relative;
-  z-index: 10;
-}
-
-.card-section {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.card-divider {
-  width: 1px;
-  height: 44px;
-  background: var(--evisa-border);
-}
-
-.avatar-wrapper, .icon-wrapper {
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-md);
-  background: var(--evisa-navy-ultra-light);
-  color: var(--evisa-navy);
-  border: 1px solid var(--evisa-border);
-  transition: transform 0.25s ease, background 0.25s ease;
-}
-
-.avatar-wrapper:hover, .icon-wrapper:hover {
-  transform: scale(1.08);
-  background: var(--evisa-orange-light);
-  border-color: #FED7AA;
-}
-
-.avatar-wrapper svg, .icon-wrapper svg {
-  width: 22px;
-  height: 22px;
-  stroke: var(--evisa-navy);
-}
-
-.card-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.card-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-heading);
-}
-
-.card-text {
-  font-size: 12px;
-  color: var(--text-secondary);
-  line-height: 1.45;
-}
-
-.card-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12.5px;
-  font-weight: 700;
-  color: var(--evisa-orange);
-  text-decoration: none;
-  margin-top: 3px;
-  transition: gap 0.2s ease, color 0.2s ease;
-}
-
-.card-link:hover {
-  color: var(--evisa-orange-hover);
-  gap: 9px;
-  text-decoration: underline;
-}
-
 /* Official Bottom Legal & Security Bar */
 .footer-meta-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 2rem 14px;
+  padding: 14px 2rem;
   max-width: 1440px;
   margin: 0 auto;
   width: 100%;
@@ -887,14 +795,6 @@ body {
   .seamless-illustration-img {
     max-height: 380px;
   }
-  .bottom-card {
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    padding: 16px 20px;
-  }
-  .card-divider {
-    display: none;
-  }
 }
 
 /* --- 2. Medium / Portrait Tablets (max-width: 860px) --- */
@@ -907,10 +807,6 @@ body {
   .header-right {
     width: 100%;
     justify-content: space-between;
-  }
-  .bottom-card {
-    grid-template-columns: 1fr;
-    gap: 16px;
   }
   .footer-meta-bar {
     padding: 12px 1.25rem;
