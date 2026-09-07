@@ -1,20 +1,15 @@
-/**
- * Layanan Imigrasi Digital - Animation Engine
- * Keyframe Animations for Illustrations, Cards, & Interactive Triggers
- */
-
-/* Soft Vertical Floating Animation for Illustration Card */
+/* Soft Vertical Floating Animation for Illustration Stage */
 @keyframes softFloat {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-10px) rotate(0.4deg);
   }
 }
 
 .anim-float {
-  animation: softFloat 5s ease-in-out infinite;
+  animation: softFloat 5.5s ease-in-out infinite;
 }
 
 /* Subtle Shimmer Effect for Accent Badges */
@@ -25,7 +20,7 @@
   }
   50% {
     opacity: 1;
-    filter: drop-shadow(0 0 8px rgba(241, 116, 37, 0.4));
+    filter: drop-shadow(0 0 10px rgba(241, 116, 37, 0.45));
   }
 }
 
@@ -51,7 +46,7 @@
 @keyframes fadeInSlideUp {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -61,4 +56,122 @@
 
 .anim-fade-up {
   animation: fadeInSlideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* =============================================================================
+   EXPRESSIVE BACKGROUND MOTION & DYNAMIC ORBS
+   ============================================================================= */
+
+/* Continuous Floating / Morphing Gradient Blobs */
+@keyframes morphFloat1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(60px, -45px) scale(1.15) rotate(12deg);
+  }
+  66% {
+    transform: translate(-40px, 35px) scale(0.92) rotate(-8deg);
+  }
+}
+
+@keyframes morphFloat2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(-70px, 50px) scale(1.12) rotate(-15deg);
+  }
+  66% {
+    transform: translate(50px, -30px) scale(0.9) rotate(10deg);
+  }
+}
+
+@keyframes morphFloat3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(45px, 40px) scale(1.18);
+  }
+}
+
+@keyframes morphFloat4 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  40% {
+    transform: translate(-50px, -40px) scale(1.1) rotate(18deg);
+  }
+  80% {
+    transform: translate(30px, 25px) scale(0.95) rotate(-10deg);
+  }
+}
+
+/* Floating Geometric Motifs (Plus, Ring, Diamond, Dot) */
+@keyframes particleFloatA {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-22px) rotate(180deg);
+    opacity: 0.75;
+  }
+}
+
+@keyframes particleFloatB {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-16px) translateX(12px) rotate(-120deg);
+    opacity: 0.65;
+  }
+}
+
+@keyframes particleFloatC {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(20px) scale(1.25);
+    opacity: 0.6;
+  }
+}
+
+@keyframes pulseGlowRing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.28);
+    opacity: 0.65;
+  }
+}
+
+/* Dynamic Grid Drift Motion */
+@keyframes gridDrift {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 56px 56px;
+  }
+}
+
+/* Ambient Radial Wave Pulse behind Illustration */
+@keyframes haloPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.14);
+    opacity: 1;
+    filter: blur(44px);
+  }
 }
