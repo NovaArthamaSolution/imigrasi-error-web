@@ -1,38 +1,36 @@
-# Layanan Imigrasi Digital - Error Page Hub (403, 404, & 500)
+# Layanan Imigrasi Digital - Universal Error Page Hub (403, 404, & 500)
 
-Sistem halaman kesalahan web terpadu (Unified & Standalone Error Web) untuk **Direktorat Jenderal Imigrasi • Layanan eVisa Indonesia**, mengusung standar visual dan desain resmi dari portal [https://evisa.imigrasi.go.id/](https://evisa.imigrasi.go.id/).
+Sistem halaman kesalahan web terpadu (Universal & Standalone Error Web) untuk **Direktorat Jenderal Imigrasi Republik Indonesia**, dirancang untuk penggunaan multi-domain (domain-agnostic) dengan standar visual dan desain resmi dari portal eVisa Indonesia.
 
 ---
 
 ## ✨ Fitur & Pembaruan Sistem
 
-1. **eVisa Design System & Theme**:
-   - Skema warna resmi eVisa: *Official Deep Navy (`#11375C`), Brand Accent Orange (`#F17425`), Light Slate/Blue (`#EBF3FB`), Border Light (`#D1E3F5`), dan Status Red (`#E15B64`)*.
-   - Tipografi resmi standar: **Inter** (Google Fonts).
-   - Top Header Bar resmi eVisa dengan logo Imigrasi Indonesia, badge `eVisa`, dan panel navigasi modern.
+1. **Universal Multi-Domain Navigation (`href="/"`)**:
+   - Seluruh tautan beranda (*Back to Home / Ke Beranda Layanan*) dan logo instansi menggunakan rute relatif akar `href="/"`, sehingga siap digunakan secara universal di berbagai subdomain maupun domain layanan keimigrasian tanpa ketergantungan tautan eksternal kaku.
 
-2. **Aset Ilustrasi PNG Berkualitas Tinggi**:
-   - **Error 403 (Akses Ditolak / Forbidden)**: Menggunakan aset `403.png` bertema keamanan & pemeriksaan otorisasi akses.
-   - **Error 404 (Halaman Tidak Ditemukan / Page Not Found)**: Menggunakan aset `404.png` bertema paspor & petugas pemandu arah.
-   - **Error 500 (Kendala Server / Server Error)**: Menggunakan aset `500.png` bertema autogate & pemeliharaan teknis sistem.
+2. **Aksi Muat Ulang Halaman (*Native Page Reload*)**:
+   - Menekan tombol **Coba Ulang / Try Again / Coba Lagi / Otentikasi** langsung mengeksekusi `window.location.reload()` secara bersih tanpa memunculkan popup atau toast mengambang.
 
-3. **Multi-Error Switcher (403, 404, 500)**:
-   - Akses instan 3 status error dalam 1 halaman terpadu (`index.html`) melalui navigation switcher ataupun parameter URL:
-     - `index.html?code=403` → Error 403 (Akses Dibatasi / Forbidden)
-     - `index.html` atau `index.html?code=404` → Error 404 (Halaman Tidak Ditemukan / Not Found)
-     - `index.html?code=500` → Error 500 (Kendala Server / Maintenance)
+3. **Bebas Popup Interaktif (*No Popups on Click*)**:
+   - Seluruh event listener popup/toast pada klik gambar ilustrasi, kartu, atau elemen visual telah dihilangkan sehingga halaman berfungsi sebagai halaman status error resmi yang tenang, bersih, dan profesional.
 
-4. **Dukungan Dua Bahasa Penuh (Bilingual Engine: ENG & ID)**:
-   - Dukungan penuh Bahasa Indonesia (**ID**) & English (**ENG**).
-   - Switcher bahasa interaktif di bilah navigasi atas dengan penyimpanan preferensi otomatis ke `localStorage`.
+4. **eVisa Design System & Theme**:
+   - Skema warna resmi: *Official Deep Navy (`#11375C`), Brand Accent Orange (`#F17425`), Light Slate/Blue (`#EBF3FB`), Border Light (`#D1E3F5`), dan Status Red (`#E15B64`)*.
+   - Tipografi standar: **Inter** (Google Fonts).
+   - Favicon resmi: Logo Direktorat Jenderal Imigrasi.
 
-5. **Halaman Mandiri (Standalone Pages)**:
-   - Halaman root: `403.html`, `404.html`, `500.html`
-   - Direktori mandiri: `/403/`, `/404/`, `/500/`
+5. **Aset Ilustrasi Seamless**:
+   - **Error 403 (Akses Ditolak / Forbidden)**: `assets/illustration/403.png`
+   - **Error 404 (Halaman Tidak Ditemukan / Page Not Found)**: `assets/illustration/404.png`
+   - **Error 500 (Kendala Server / Server Error)**: `assets/illustration/500.png`
 
-6. **Interaktivitas & Easter Eggs**:
-   - Klik pada kartu ilustrasi (403, 404, 500) untuk memunculkan pesan kontekstual ceria dari petugas imigrasi, keamanan, atau teknisi server.
-   - Tombol **Coba Ulang / Otentikasi** dengan animasi loading dan simulasi pengecekan koneksi server.
+6. **Multi-Error Switcher (403, 404, 500) & Bilingual (ENG/ID)**:
+   - Akses instan 3 status error dalam 1 halaman terpadu (`index.html`) via switcher dan URL query parameter:
+     - `index.html?code=403` $\rightarrow$ Error 403 (Akses Dibatasi)
+     - `index.html?code=404` $\rightarrow$ Error 404 (Tidak Ditemukan)
+     - `index.html?code=500` $\rightarrow$ Error 500 (Kendala Server)
+   - Switcher dwibahasa (**Bahasa Indonesia / English**) dengan penyimpanan lokal otomatis.
 
 ---
 
@@ -44,37 +42,15 @@ imigrasi-error-web/
 ├── 403.html                     # Halaman mandiri Error 403
 ├── 404.html                     # Halaman mandiri Error 404
 ├── 500.html                     # Halaman mandiri Error 500
-├── 403.png                      # Asset Ilustrasi 403 (Forbidden)
-├── 404.png                      # Asset Ilustrasi 404 (Not Found)
-├── 500.png                      # Asset Ilustrasi 500 (Server Error)
 ├── css/
-│   ├── styles.css               # eVisa Design System, Typography Inter, Palette #11375C & #F17425
-│   └── animations.css           # Keyframe animations (float, pulse, spinner, glow)
+│   ├── styles.css               # Design system, Inter font, #11375C & #F17425, responsive rules
+│   └── animations.css           # Keyframe animations (float, glow, spinner)
 ├── js/
-│   └── main.js                  # Engine dwibahasa (ENG/ID), switcher 403/404/500, toast feedback
+│   └── main.js                  # Engine dwibahasa (ENG/ID), page reload & clean navigation
 ├── assets/
-│   ├── icons/                   # Logo resmi Imigrasi & icon pendukung
-│   └── illustration/            # Salinan aset gambar & ilustrasi
-├── 403/                         # Direktori mandiri 403
-├── 404/                         # Direktori mandiri 404
-└── 500/                         # Direktori mandiri 500
+│   ├── icons/logo-imigrasi.png  # Logo & Favicon resmi Imigrasi
+│   └── illustration/            # Asset 403.png, 404.png, 500.png
+├── 403/index.html               # Direktori mandiri 403
+├── 404/index.html               # Direktori mandiri 404
+└── 500/index.html               # Direktori mandiri 500
 ```
-
----
-
-## 🚀 Cara Menjalankan & Menguji
-
-Buka langsung file HTML di peramban (browser) atau jalankan server lokal:
-
-```bash
-# Menggunakan python built-in server
-python3 -m http.server 8080
-```
-
-Lalu buka di browser:
-- `http://localhost:8080/index.html?code=403` (Error 403)
-- `http://localhost:8080/index.html?code=404` (Error 404)
-- `http://localhost:8080/index.html?code=500` (Error 500)
-- `http://localhost:8080/403/` atau `http://localhost:8080/403.html`
-- `http://localhost:8080/404/` atau `http://localhost:8080/404.html`
-- `http://localhost:8080/500/` atau `http://localhost:8080/500.html`

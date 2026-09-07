@@ -1,7 +1,7 @@
 /**
- * Layanan Imigrasi Digital - eVisa Interactive Engine
+ * Layanan Imigrasi Digital - Universal Error Engine
  * Handles Bilingual Support (ID / ENG), Error Mode Switching (403, 404, 500),
- * Interactive Feedback, Toasts, & URL Routing
+ * Page Reload on Retry Actions, and Domain-Agnostic Navigation (href="/")
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
       codeHeader404: "404",
       codeSub404: "Halaman Tidak Ditemukan",
       title404: "Halaman atau Tautan Tidak Ditemukan",
-      desc404: "Sepertinya tautan atau halaman permohonan visa yang Anda tuju telah dipindahkan, dinonaktifkan, atau alamat URL yang dimasukkan kurang tepat.",
-      note404: "Periksa kembali ejaan tautan pada bilah peramban Anda atau gunakan menu navigasi untuk mencari formulir layanan yang sesuai.",
+      desc404: "Sepertinya tautan atau halaman layanan yang Anda tuju telah dipindahkan, dinonaktifkan, atau alamat URL yang dimasukkan kurang tepat.",
+      note404: "Periksa kembali ejaan tautan pada bilah peramban Anda atau gunakan menu navigasi untuk mencari layanan yang sesuai.",
       btnReload404: "Coba Ulang",
       btnHome404: "Ke Beranda Layanan",
       badge404: "Tautan Tidak Terdaftar",
@@ -50,29 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Shared Bottom Support Card & Footer
       card1Title: "Tenang, data Anda tetap aman!",
-      card1Desc: "Seluruh data permohonan visa dan dokumen keimigrasian Anda terlindungi enkripsi standar internasional.",
+      card1Desc: "Seluruh data permohonan dan dokumen keimigrasian Anda terlindungi enkripsi standar internasional.",
       card2Title: "Butuh Bantuan Layanan?",
       card2Desc: "Petugas Helpdesk kami siap melayani dan mendampingi kendala Anda.",
       helpdeskLink: "Hubungi Helpdesk Imigrasi 24 Jam",
       footerCopyright: "© 2026 Direktorat Jenderal Imigrasi • Kementerian Imigrasi dan Pemasyarakatan RI",
-      footerSecurityTitle: "Sistem Informasi Manajemen Keimigrasian (SIMKIM / MOLINA)",
-
-      // Toast Notifications & Easter Eggs
-      toastAuth403: "Mengarahkan ke portal otentikasi login resmi...",
-      toastReload404: "Memeriksa ulang alamat tautan dan rute halaman...",
-      toastReload500Checking: "Menghubungkan ke server pusat Imigrasi...",
-      toastReload500Maintenance: "Server sedang dalam sinkronisasi. Silakan coba kembali sesaat lagi.",
-      toastHome: "Mengarahkan kembali ke beranda utama eVisa Imigrasi...",
-      toastHelpdesk: "Layanan Bantuan 24 Jam: Call Center 1500-116 / WhatsApp: 0811-1030-333",
-      toastLangChanged: "Bahasa berhasil diubah ke Bahasa Indonesia (ID)",
-      toastMode403: "Menampilkan Tampilan Kesalahan 403 (Akses Ditolak)",
-      toastMode404: "Menampilkan Tampilan Kesalahan 404 (Tidak Ditemukan)",
-      toastMode500: "Menampilkan Tampilan Kesalahan 500 (Kendala Server)",
-      
-      // Illustration Easter Eggs
-      easterEgg403: 'Petugas Keamanan: "Jalur ini membutuhkan verifikasi biometrik atau izin khusus keimigrasian!"',
-      easterEgg404: 'Petugas Imigrasi: "Rute yang Anda tuju belum terdaftar. Mari kami bantu arahkan ke pintu utama!"',
-      easterEgg500: 'Teknisi Sistem: "Sistem autogate & server sedang dioptimalkan. Terima kasih atas kesabaran Anda!"'
+      footerSecurityTitle: "Sistem Informasi Manajemen Keimigrasian (SIMKIM / MOLINA)"
     },
     en: {
       pageTitle403: "403 - Access Forbidden / Denied | Directorate General of Immigration Republic of Indonesia",
@@ -98,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       codeHeader404: "404",
       codeSub404: "Page Not Found",
       title404: "Page or Resource Not Found",
-      desc404: "It seems the visa application link or page you are looking for has been relocated, removed, or the entered URL address contains an error.",
+      desc404: "It seems the service link or page you are looking for has been relocated, removed, or the entered URL address contains an error.",
       note404: "Please double check the URL address in your browser bar or use the main menu to navigate to available immigration services.",
       btnReload404: "Try Again",
       btnHome404: "Back to Home Portal",
@@ -117,29 +100,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Shared Bottom Support Card & Footer
       card1Title: "Relax, your data is secure!",
-      card1Desc: "All your visa applications and immigration records are protected with international encryption standards.",
+      card1Desc: "All your applications and immigration records are protected with international encryption standards.",
       card2Title: "Need Assistance?",
       card2Desc: "Our 24/7 immigration support helpdesk team is ready to assist you anytime.",
       helpdeskLink: "Contact 24/7 Immigration Helpdesk",
       footerCopyright: "© 2026 Directorate General of Immigration • Republic of Indonesia",
-      footerSecurityTitle: "Immigration Management Information System (MOLINA / SIMKIM)",
-
-      // Toast Notifications & Easter Eggs
-      toastAuth403: "Redirecting to official immigration authentication portal...",
-      toastReload404: "Re-checking URL path and routing...",
-      toastReload500Checking: "Connecting to central Immigration servers...",
-      toastReload500Maintenance: "Server synchronization in progress. Please try again shortly.",
-      toastHome: "Redirecting back to Immigration eVisa homepage...",
-      toastHelpdesk: "24/7 Support: Call Center 1500-116 / WhatsApp: +62 811-1030-333",
-      toastLangChanged: "Language switched to English (ENG)",
-      toastMode403: "Displaying 403 Error (Access Forbidden)",
-      toastMode404: "Displaying 404 Error (Page Not Found)",
-      toastMode500: "Displaying 500 Error (Internal Server Error)",
-      
-      // Illustration Easter Eggs
-      easterEgg403: 'Security Officer: "This passage requires verified biometric clearance or valid immigration authorization!"',
-      easterEgg404: 'Immigration Officer: "The requested route is not registered. Let us guide you back to the main gate!"',
-      easterEgg500: 'System Technician: "Autogates and core servers are being calibrated. Thank you for your patience!"'
+      footerSecurityTitle: "Immigration Management Information System (MOLINA / SIMKIM)"
     }
   };
 
@@ -167,54 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const view404 = document.getElementById('view-404');
   const view500 = document.getElementById('view-500');
 
-  const toastContainer = document.getElementById('toastContainer');
-
   /**
-   * Accessible Toast Notification System
+   * Switch between 403, 404, and 500 error views cleanly
    */
-  function showToast(message, isSpinner = false, duration = 3200) {
-    if (!toastContainer) return;
-
-    const toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.setAttribute('role', 'status');
-    toast.setAttribute('aria-live', 'polite');
-
-    const iconHtml = isSpinner
-      ? '<div class="toast-spinner" aria-hidden="true"></div>'
-      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F17425" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-
-    toast.innerHTML = `${iconHtml} <span>${message}</span>`;
-    toastContainer.appendChild(toast);
-
-    requestAnimationFrame(() => {
-      toast.classList.add('show');
-    });
-
-    const timer = setTimeout(() => {
-      toast.classList.remove('show');
-      setTimeout(() => {
-        if (toast.parentNode) toast.parentNode.removeChild(toast);
-      }, 300);
-    }, duration);
-
-    toast.addEventListener('click', () => {
-      clearTimeout(timer);
-      toast.classList.remove('show');
-      setTimeout(() => {
-        if (toast.parentNode) toast.parentNode.removeChild(toast);
-      }, 300);
-    });
-  }
-
-  /**
-   * Switch between 403, 404, and 500 error views
-   */
-  function switchErrorCode(code, notify = false) {
+  function switchErrorCode(code) {
     if (!['403', '404', '500'].includes(code)) code = '404';
     currentCode = code;
 
-    // Update URL query parameter cleanly without page reload
+    // Update URL query parameter cleanly without full page reload
     const newUrl = new URL(window.location);
     newUrl.searchParams.set('code', code);
     window.history.replaceState({}, '', newUrl);
@@ -234,24 +160,21 @@ document.addEventListener('DOMContentLoaded', () => {
       if (view403) view403.classList.add('is-active');
       if (modeBtn403) modeBtn403.classList.add('is-active');
       document.title = translations[currentLang].pageTitle403;
-      if (notify) showToast(translations[currentLang].toastMode403, false, 2400);
     } else if (code === '500') {
       if (view500) view500.classList.add('is-active');
       if (modeBtn500) modeBtn500.classList.add('is-active');
       document.title = translations[currentLang].pageTitle500;
-      if (notify) showToast(translations[currentLang].toastMode500, false, 2400);
     } else {
       if (view404) view404.classList.add('is-active');
       if (modeBtn404) modeBtn404.classList.add('is-active');
       document.title = translations[currentLang].pageTitle404;
-      if (notify) showToast(translations[currentLang].toastMode404, false, 2400);
     }
   }
 
   /**
    * Apply translations to the DOM
    */
-  function setLanguage(lang, notify = false) {
+  function setLanguage(lang) {
     if (!translations[lang]) return;
     currentLang = lang;
     localStorage.setItem('imigrasi_lang', lang);
@@ -289,29 +212,25 @@ document.addEventListener('DOMContentLoaded', () => {
         opt.classList.remove('is-active');
       }
     });
-
-    if (notify) {
-      showToast(translations[lang].toastLangChanged, false, 2500);
-    }
   }
 
   // Bind Mode Switcher Buttons
   if (modeBtn403) {
     modeBtn403.addEventListener('click', (e) => {
       e.preventDefault();
-      switchErrorCode('403', true);
+      switchErrorCode('403');
     });
   }
   if (modeBtn404) {
     modeBtn404.addEventListener('click', (e) => {
       e.preventDefault();
-      switchErrorCode('404', true);
+      switchErrorCode('404');
     });
   }
   if (modeBtn500) {
     modeBtn500.addEventListener('click', (e) => {
       e.preventDefault();
-      switchErrorCode('500', true);
+      switchErrorCode('500');
     });
   }
 
@@ -328,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopPropagation();
         const selectedLang = opt.getAttribute('data-lang');
         if (selectedLang !== currentLang) {
-          setLanguage(selectedLang, true);
+          setLanguage(selectedLang);
         }
         langDropdownWrapper.classList.remove('is-open');
         langToggleBtn.setAttribute('aria-expanded', 'false');
@@ -351,88 +270,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Action: Auth 403 Button
+  // Action: Try Again / Reload Buttons -> Trigger Page Reload
   const btnAuth403 = document.getElementById('btnAuth403');
   if (btnAuth403) {
     btnAuth403.addEventListener('click', () => {
-      showToast(translations[currentLang].toastAuth403);
+      window.location.reload();
     });
   }
 
-  // Action: Reload 404 Button
   const btnReload404 = document.getElementById('btnReload404');
   if (btnReload404) {
     btnReload404.addEventListener('click', () => {
-      const icon = btnReload404.querySelector('svg');
-      if (icon) {
-        icon.classList.add('is-spinning');
-        setTimeout(() => { icon.classList.remove('is-spinning'); }, 800);
-      }
-      showToast(translations[currentLang].toastReload404);
+      window.location.reload();
     });
   }
 
-  // Action: Reload 500 Button with Server Checking Simulation
   const btnReload500 = document.getElementById('btnReload500');
-  const btnReload500Text = document.getElementById('btnReload500Text');
-  let isRetrying500 = false;
   if (btnReload500) {
     btnReload500.addEventListener('click', () => {
-      if (isRetrying500) return;
-      isRetrying500 = true;
-      const dict = translations[currentLang];
-      const origText = btnReload500Text ? btnReload500Text.textContent : '';
-      if (btnReload500Text) btnReload500Text.textContent = currentLang === 'id' ? "Menghubungkan..." : "Connecting...";
-      btnReload500.style.opacity = '0.85';
-      btnReload500.style.pointerEvents = 'none';
-
-      showToast(dict.toastReload500Checking, true, 2000);
-
-      setTimeout(() => {
-        showToast(dict.toastReload500Maintenance, false, 4000);
-        if (btnReload500Text) btnReload500Text.textContent = dict.btnReload500;
-        btnReload500.style.opacity = '1';
-        btnReload500.style.pointerEvents = 'auto';
-        isRetrying500 = false;
-      }, 2000);
+      window.location.reload();
     });
-  }
-
-  // Home Buttons Action
-  const btnHomeList = document.querySelectorAll('.btn-action-home');
-  btnHomeList.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      showToast(translations[currentLang].toastHome);
-    });
-  });
-
-  // Helpdesk Links Action
-  const helpdeskLinks = document.querySelectorAll('.action-helpdesk');
-  helpdeskLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      showToast(translations[currentLang].toastHelpdesk, false, 4500);
-    });
-  });
-
-  // Easter Egg Interactions on Seamless Illustration Stages
-  const stage403 = document.querySelector('.stage-403, .card-illustration-403');
-  if (stage403) {
-    stage403.addEventListener('click', () => showToast(translations[currentLang].easterEgg403));
-  }
-
-  const stage404 = document.querySelector('.stage-404, .card-illustration-404');
-  if (stage404) {
-    stage404.addEventListener('click', () => showToast(translations[currentLang].easterEgg404));
-  }
-
-  const stage500 = document.querySelector('.stage-500, .card-illustration-500');
-  if (stage500) {
-    stage500.addEventListener('click', () => showToast(translations[currentLang].easterEgg500));
   }
 
   // Initialize Language and Mode
-  setLanguage(currentLang, false);
-  switchErrorCode(currentCode, false);
+  setLanguage(currentLang);
+  switchErrorCode(currentCode);
 });
