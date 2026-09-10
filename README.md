@@ -1,6 +1,6 @@
 # Layanan Imigrasi Digital - Universal Error Page Hub (403, 404, & 500)
 
-Sistem halaman kesalahan web terpadu (Universal & Standalone Error Web) untuk **Direktorat Jenderal Imigrasi Republik Indonesia**, dirancang untuk penggunaan multi-domain (domain-agnostic) dengan standar visual dan desain resmi dari portal eVisa Indonesia.
+Sistem halaman kesalahan web terpadu (Universal & Standalone Error Web) untuk **Direktorat Jenderal Imigrasi**, dirancang untuk penggunaan multi-domain (domain-agnostic) dengan standar visual dan desain resmi dari portal eVisa Indonesia.
 
 ---
 
